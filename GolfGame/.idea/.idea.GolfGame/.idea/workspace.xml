@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f22c44ea-a26e-450a-ace5-238fcdc28058" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/InputSystem_Actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/InputSystem_Actions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +22,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/c1/13496408/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/BallInteraction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Editor/ProjectWideActions/ProjectWideActionsAsset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting/Editor/VisualScripting.Flow/Options/UnitBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -100,6 +104,8 @@
       <workItem from="1736258244219" duration="22000" />
       <workItem from="1736258287023" duration="2876000" />
       <workItem from="1736269069498" duration="3372000" />
+      <workItem from="1736462061914" duration="9828000" />
+      <workItem from="1736477336689" duration="2592000" />
     </task>
     <servers />
   </component>

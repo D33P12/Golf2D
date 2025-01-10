@@ -55,7 +55,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ShotHeight"",
+                    ""name"": ""ShootHeight"",
                     ""type"": ""Value"",
                     ""id"": ""03dbd7c0-85f3-416d-802d-d871697b783a"",
                     ""expectedControlType"": ""Vector2"",
@@ -136,29 +136,29 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShotHeight"",
+                    ""action"": ""ShootHeight"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""5ee77766-84af-42a9-a0ef-058a4cd85dcb"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShotHeight"",
+                    ""action"": ""ShootHeight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""1202169d-e12e-424e-b4cc-25add17cdeb3"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShotHeight"",
+                    ""action"": ""ShootHeight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -183,7 +183,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerMovement_Move = m_PlayerMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerMovement_ChargePower = m_PlayerMovement.FindAction("ChargePower", throwIfNotFound: true);
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerMovement_ShotHeight = m_PlayerMovement.FindAction("ShotHeight", throwIfNotFound: true);
+        m_PlayerMovement_ShootHeight = m_PlayerMovement.FindAction("ShootHeight", throwIfNotFound: true);
         m_PlayerMovement_CancelCharge = m_PlayerMovement.FindAction("CancelCharge", throwIfNotFound: true);
     }
 
@@ -254,7 +254,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Move;
     private readonly InputAction m_PlayerMovement_ChargePower;
     private readonly InputAction m_PlayerMovement_Jump;
-    private readonly InputAction m_PlayerMovement_ShotHeight;
+    private readonly InputAction m_PlayerMovement_ShootHeight;
     private readonly InputAction m_PlayerMovement_CancelCharge;
     public struct PlayerMovementActions
     {
@@ -263,7 +263,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerMovement_Move;
         public InputAction @ChargePower => m_Wrapper.m_PlayerMovement_ChargePower;
         public InputAction @Jump => m_Wrapper.m_PlayerMovement_Jump;
-        public InputAction @ShotHeight => m_Wrapper.m_PlayerMovement_ShotHeight;
+        public InputAction @ShootHeight => m_Wrapper.m_PlayerMovement_ShootHeight;
         public InputAction @CancelCharge => m_Wrapper.m_PlayerMovement_CancelCharge;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
@@ -283,9 +283,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @ShotHeight.started += instance.OnShotHeight;
-            @ShotHeight.performed += instance.OnShotHeight;
-            @ShotHeight.canceled += instance.OnShotHeight;
+            @ShootHeight.started += instance.OnShootHeight;
+            @ShootHeight.performed += instance.OnShootHeight;
+            @ShootHeight.canceled += instance.OnShootHeight;
             @CancelCharge.started += instance.OnCancelCharge;
             @CancelCharge.performed += instance.OnCancelCharge;
             @CancelCharge.canceled += instance.OnCancelCharge;
@@ -302,9 +302,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @ShotHeight.started -= instance.OnShotHeight;
-            @ShotHeight.performed -= instance.OnShotHeight;
-            @ShotHeight.canceled -= instance.OnShotHeight;
+            @ShootHeight.started -= instance.OnShootHeight;
+            @ShootHeight.performed -= instance.OnShootHeight;
+            @ShootHeight.canceled -= instance.OnShootHeight;
             @CancelCharge.started -= instance.OnCancelCharge;
             @CancelCharge.performed -= instance.OnCancelCharge;
             @CancelCharge.canceled -= instance.OnCancelCharge;
@@ -330,7 +330,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnChargePower(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnShotHeight(InputAction.CallbackContext context);
+        void OnShootHeight(InputAction.CallbackContext context);
         void OnCancelCharge(InputAction.CallbackContext context);
     }
 }
