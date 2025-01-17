@@ -11,12 +11,12 @@ public class PlayerAiming : BaseState
     
     public override void EnterState()
     {
-        
+        _golfStateMachine.PlayerController.StartAiming();
     }
 
     public override void UpdateState()
     {
-
+        _golfStateMachine.PlayerController.Aim();
     }
 
     public override void ExitState()

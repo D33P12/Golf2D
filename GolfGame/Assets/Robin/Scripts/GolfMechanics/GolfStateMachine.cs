@@ -27,6 +27,8 @@ public class GolfStateMachine : BaseStateMachine
         _playerAimingState = new PlayerAiming(this);
         _playerChargingState = new PlayerCharging(this);
         _playerShootState = new PlayerShoot(this);
+
+        _playerController = GetComponent<GolfPlayerController>();
     }
 
     private void Start()

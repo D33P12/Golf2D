@@ -41,9 +41,9 @@ public class InputManager : MonoBehaviour
     #endregion
 
     #region GolfBall Inputs
-    public float GetShootDirection()
+    public Vector2 GetShootDirection()
     {
-        return (float)golfInput.GolfBall.ShootDirectionChange.ReadValue<double>();
+        return golfInput.GolfBall.ShootDirectionChange.ReadValue<Vector2>();
     }
 
     public InputAction GetShoot()
