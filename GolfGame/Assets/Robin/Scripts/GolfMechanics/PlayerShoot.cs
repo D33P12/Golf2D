@@ -12,7 +12,7 @@ public class PlayerShoot : BaseState
 
     public override void EnterState()
     {
-        _
+        
     }
 
     public override void UpdateState()
