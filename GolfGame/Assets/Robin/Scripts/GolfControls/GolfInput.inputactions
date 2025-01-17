@@ -1,0 +1,76 @@
+{
+    "name": "GolfInput",
+    "maps": [
+        {
+            "name": "GolfBall",
+            "id": "701bd38a-17b8-4d2e-be4d-6f85c8c67b41",
+            "actions": [
+                {
+                    "name": "ShootDirectionChange",
+                    "type": "Value",
+                    "id": "efcef1bd-8c49-4c37-a87a-c5ca936627ee",
+                    "expectedControlType": "Double",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "2080eaf4-830e-4fa1-b04b-b446b1510683",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Left&Right",
+                    "id": "6924fcac-4d12-4212-94fe-8e4aca63a59f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootDirectionChange",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "6efab9d7-f7c8-4369-b2b9-7d629cd37a2e",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootDirectionChange",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "670b2456-7d2e-4e22-aa4d-53ce4ac7f1e9",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootDirectionChange",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "33e621fe-7d33-49e4-a4ad-b8359cab20ae",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
