@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: chargeSpeed
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

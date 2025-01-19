@@ -62,7 +62,7 @@ public class GolfPlayerController : MonoBehaviour
         currentForce = currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
 
         if (currentForce > maxForce)    // if current force is higher than the max force the player can reach
-            currentForce = initialForce;    // set it back to the initial force
+            currentForce = maxForce;    // keep it at the maximum force
 
         Debug.Log(currentForce);
     }
