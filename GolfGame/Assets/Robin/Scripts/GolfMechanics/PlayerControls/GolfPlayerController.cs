@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GolfPlayerController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class GolfPlayerController : MonoBehaviour
     [Header("Player Aiming")]
     [SerializeField] private float aimSpeed = 45f;
     [SerializeField] private Transform shootTrans;
+    [SerializeField] private float startingAngle = 0f;
+    
+    private float currentAngle;
 
     [SerializeField] private float minAim = 0f;
     [SerializeField] private float maxAim = 180f;
@@ -22,26 +26,14 @@ public class GolfPlayerController : MonoBehaviour
     public void StartAiming()
     {
         //Set initial shoot direction
-        shootTrans.rotation = Quaternion.identity;
+        currentAngle = startingAngle;
     }
 
     public void AimingHandling()
     {
         //Handling the function of player aiming
         Vector2 shootDirectionInput = inputManager.GetShootDirection();
-        float shootAngle = -shootDirectionInput.x * aimSpeed * Time.deltaTime;
-
-        shootTrans.Rotate(Vector3.forward, shootAngle);
-
-        //Limit the aim angle
-        if (shootTrans.eulerAngles.z < minAim)
-        {
-            shootTrans.rotation = Quaternion.Euler(0f, 0f, minAim);
-        }
-
-        if (shootTrans.eulerAngles.z > maxAim)
-        {
-            shootTrans.rotation = Quaternion.Euler(0f, 0f, maxAim);
-        }
+        currentAngle = currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
+        shootTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(currentAngle, minAim, maxAim));
     }
 }
