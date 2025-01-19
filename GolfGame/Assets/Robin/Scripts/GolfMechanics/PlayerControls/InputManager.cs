@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
-    #region GolfBall Inputs
+    #region GolfGame Inputs
     public Vector2 GetShootDirection()
     {
         return golfInput.GolfBall.ShootDirectionChange.ReadValue<Vector2>();
