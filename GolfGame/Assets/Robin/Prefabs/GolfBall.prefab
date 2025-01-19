@@ -63,8 +63,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimSpeed: 45
   shootTrans: {fileID: 1719049837770734942}
+  startingAngle: 0
   minAim: 0
   maxAim: 180
+  isCharging: 0
+  chargeSpeed: 50
+  maxForce: 100
 --- !u!50 &5890658722774053598
 Rigidbody2D:
   serializedVersion: 5

@@ -12,16 +12,25 @@ public class PlayerCharging : BaseState
 
     public override void EnterState()
     {
+        //Enter the charging state, start charging before shoot
+        Debug.Log("Start charging");
 
+        _golfStateMachine.PlayerController.StartCharging();
     }
 
     public override void UpdateState()
     {
+        //Charging to look for better force to shoot
+        _golfStateMachine.PlayerController.HandlingCharging();
 
+        if (!_golfStateMachine.PlayerController.isCharging)
+        {
+            _golfStateMachine.SetState(_golfStateMachine.PlayerShootState);
+        }
     }
 
     public override void ExitState()
     {
-
+        Debug.Log("Finish charging");
     }
 }

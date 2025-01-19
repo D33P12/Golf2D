@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class GolfStateMachine : BaseStateMachine
 {
     #region Keep track of all golf player states
@@ -34,6 +32,6 @@ public class GolfStateMachine : BaseStateMachine
     private void Start()
     {
         // Switch to the default state for the golf player, which will be the aiming state
-        SetState(_playerAimingState);
+        SetState(PlayerAimingState);
     }
 }
