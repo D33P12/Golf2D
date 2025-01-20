@@ -6,7 +6,8 @@ public class GolfPlayerController : MonoBehaviour
     #region PlayerControlVariables
     //Common variables
     [NonSerialized] public InputManager inputManager;  //We use input manager to control the golf ball
-    public Transform shootTrans;
+    [SerializeField] private Transform coreTrans;
+    private Vector2 _shootDirection = Vector2.right;
 
     [Header("Player Aiming")]
     [SerializeField] private float aimSpeed = 45f;
@@ -25,8 +26,12 @@ public class GolfPlayerController : MonoBehaviour
 
     [NonSerialized] public bool isCharging;
     private float currentForce;
+
+    [Header("Player Shoot")]
+    [SerializeField] private float friction = 2.0f;
     #endregion
 
+    #region Initialization
     private void Awake()
     {
         //Get input manager instance
@@ -35,6 +40,7 @@ public class GolfPlayerController : MonoBehaviour
         inputManager.GetShoot().performed += x => IsCharging();
         inputManager.GetShoot().canceled += x => IsNotCharging();
     }
+    #endregion
 
     #region Player Aiming
     public void StartAiming()
@@ -42,7 +48,7 @@ public class GolfPlayerController : MonoBehaviour
         //Set initial shoot direction
         currentAngle = startingAngle;
         //Show the shooting direction
-        shootTrans.gameObject.SetActive(true);
+        coreTrans.gameObject.SetActive(true);
     }
 
     public void HandlingAiming()
@@ -50,7 +56,7 @@ public class GolfPlayerController : MonoBehaviour
         //Handling the function of player aiming
         Vector2 shootDirectionInput = inputManager.GetShootDirection();
         currentAngle = currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
-        shootTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(currentAngle, minAim, maxAim));
+        coreTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(currentAngle, minAim, maxAim));
     }
     #endregion
 
@@ -70,6 +76,11 @@ public class GolfPlayerController : MonoBehaviour
         Debug.Log(currentForce);
     }
 
+    public void FinishCharging()
+    {
+        coreTrans.gameObject.SetActive(false);
+    }
+
     private void IsCharging()
     {
         isCharging = true;
@@ -77,6 +88,18 @@ public class GolfPlayerController : MonoBehaviour
     private void IsNotCharging()
     {
         isCharging = false;
+    }
+    #endregion
+
+    #region Player Shoot
+    public void ShootBall()
+    {
+        Rigidbody2D ballRb = gameObject.GetComponent<Rigidbody2D>();
+
+        if (ballRb == null) return;
+
+        _shootDirection = Quaternion.AngleAxis(currentAngle, Vector3.forward) * _shootDirection;
+        ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
     }
     #endregion
 }

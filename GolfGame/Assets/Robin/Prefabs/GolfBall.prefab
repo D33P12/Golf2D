@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c19408356fa9ca4e96b5605f5d84da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootTrans: {fileID: 1719049837770734942}
+  coreTrans: {fileID: 1719049837770734942}
   aimSpeed: 45
   startingAngle: 0
   minAim: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
   chargeSpeed: 50
   initialForce: 0
   maxForce: 100
+  friction: 2
 --- !u!50 &5890658722774053598
 Rigidbody2D:
   serializedVersion: 5
@@ -81,7 +82,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1

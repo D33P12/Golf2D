@@ -12,7 +12,8 @@ public class PlayerShoot : BaseState
 
     public override void EnterState()
     {
-        
+        Debug.Log("Shoot!");
+        _golfStateMachine.PlayerController.ShootBall();
     }
 
     public override void UpdateState()
@@ -22,6 +23,6 @@ public class PlayerShoot : BaseState
 
     public override void ExitState()
     {
-
+        Debug.Log("Finish Shooting");
     }
 }

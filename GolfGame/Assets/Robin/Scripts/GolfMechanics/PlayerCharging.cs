@@ -32,6 +32,6 @@ public class PlayerCharging : BaseState
     public override void ExitState()
     {
         Debug.Log("Finish charging");
-        _golfStateMachine.PlayerController.shootTrans.gameObject.SetActive(false);
+        _golfStateMachine.PlayerController.FinishCharging();
     }
 }
