@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall
       objectReference: {fileID: 0}
+    - target: {fileID: 2504124442977971931, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3283378903515908340, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.37699246

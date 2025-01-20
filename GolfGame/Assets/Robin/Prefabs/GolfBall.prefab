@@ -61,13 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c19408356fa9ca4e96b5605f5d84da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimSpeed: 45
   shootTrans: {fileID: 1719049837770734942}
+  aimSpeed: 45
   startingAngle: 0
   minAim: 0
   maxAim: 180
-  isCharging: 0
   chargeSpeed: 50
+  initialForce: 0
   maxForce: 100
 --- !u!50 &5890658722774053598
 Rigidbody2D:
@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1719049837770734942
 Transform:
   m_ObjectHideFlags: 0

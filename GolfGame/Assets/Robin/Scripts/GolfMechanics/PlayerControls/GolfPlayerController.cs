@@ -6,10 +6,10 @@ public class GolfPlayerController : MonoBehaviour
     #region PlayerControlVariables
     //Common variables
     [NonSerialized] public InputManager inputManager;  //We use input manager to control the golf ball
+    public Transform shootTrans;
 
     [Header("Player Aiming")]
     [SerializeField] private float aimSpeed = 45f;
-    [SerializeField] private Transform shootTrans;
     [SerializeField] private float startingAngle = 0f;
 
     [SerializeField] private float minAim = 0f;
@@ -26,6 +26,7 @@ public class GolfPlayerController : MonoBehaviour
     [NonSerialized] public bool isCharging;
     private float currentForce;
     #endregion
+
     private void Awake()
     {
         //Get input manager instance
@@ -40,6 +41,8 @@ public class GolfPlayerController : MonoBehaviour
     {
         //Set initial shoot direction
         currentAngle = startingAngle;
+        //Show the shooting direction
+        shootTrans.gameObject.SetActive(true);
     }
 
     public void HandlingAiming()
