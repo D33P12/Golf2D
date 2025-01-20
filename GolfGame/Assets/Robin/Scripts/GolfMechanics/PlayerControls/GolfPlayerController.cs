@@ -30,6 +30,7 @@ public class GolfPlayerController : MonoBehaviour
 
     [Header("Player Shoot")]
     [SerializeField] private float friction = 2.0f;
+    private Rigidbody2D ballRb;
     #endregion
 
     #region Initialization
@@ -40,6 +41,8 @@ public class GolfPlayerController : MonoBehaviour
 
         inputManager.GetShoot().performed += x => IsCharging();
         inputManager.GetShoot().canceled += x => IsNotCharging();
+
+        ballRb = gameObject.GetComponent<Rigidbody2D>();
     }
     #endregion
 
@@ -107,12 +110,20 @@ public class GolfPlayerController : MonoBehaviour
     #region Player Shoot
     public void ShootBall()
     {
-        Rigidbody2D ballRb = gameObject.GetComponent<Rigidbody2D>();
-
         if (ballRb == null) return;
 
         _shootDirection = Quaternion.AngleAxis(currentAngle, Vector3.forward) * _shootDirection;
         ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
+    }
+
+    public bool isBallStopped()
+    {
+        if (ballRb == null) return true;
+
+        if (ballRb.IsSleeping()) 
+            return true;
+        else
+            return false;
     }
     #endregion
 }

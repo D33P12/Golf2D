@@ -18,7 +18,10 @@ public class PlayerShoot : BaseState
 
     public override void UpdateState()
     {
-        
+        if (_golfStateMachine.PlayerController.isBallStopped())
+        {
+            _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
+        }
     }
 
     public override void ExitState()
