@@ -33,5 +33,6 @@ public class PlayerCharging : BaseState
     {
         Debug.Log("Finish charging");
         _golfStateMachine.PlayerController.FinishCharging();
+        _golfStateMachine.PlayerController.CanChangeDirection(false);
     }
 }

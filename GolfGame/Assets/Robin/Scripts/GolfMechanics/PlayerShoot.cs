@@ -18,7 +18,7 @@ public class PlayerShoot : BaseState
 
     public override void UpdateState()
     {
-
+        
     }
 
     public override void ExitState()

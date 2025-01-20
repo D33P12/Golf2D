@@ -17,6 +17,7 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float maxAim = 180f;
 
     private float currentAngle;
+    private bool _canChangeDirection = true;
 
     [Header("Player Charging")]
     [SerializeField] private float chargeSpeed = 50f;
@@ -43,20 +44,32 @@ public class GolfPlayerController : MonoBehaviour
     #endregion
 
     #region Player Aiming
+    private void FixedUpdate()
+    {
+        if (_canChangeDirection)
+            HandlingAiming();
+    }
+
     public void StartAiming()
     {
         //Set initial shoot direction
         currentAngle = startingAngle;
         //Show the shooting direction
         coreTrans.gameObject.SetActive(true);
+        CanChangeDirection(true);
     }
 
-    public void HandlingAiming()
+    private void HandlingAiming()
     {        
         //Handling the function of player aiming
         Vector2 shootDirectionInput = inputManager.GetShootDirection();
         currentAngle = currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
         coreTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(currentAngle, minAim, maxAim));
+    }
+
+    public void CanChangeDirection(bool value)
+    {
+        _canChangeDirection = value;
     }
     #endregion
 

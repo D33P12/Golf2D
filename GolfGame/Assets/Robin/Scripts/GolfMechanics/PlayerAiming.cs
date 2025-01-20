@@ -20,7 +20,7 @@ public class PlayerAiming : BaseState
     public override void UpdateState()
     {
         //During the aiming state, we press left/right for aiming
-        _golfStateMachine.PlayerController.HandlingAiming();
+        //_golfStateMachine.PlayerController.HandlingAiming();
 
         if (_golfStateMachine.PlayerController.isCharging)
         {
