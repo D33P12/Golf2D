@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()
     {
-        _rb.velocity = new Vector2(_moveInput.x * moveSpeed, _rb.velocity.y);
+        _rb.linearVelocity = new Vector2(_moveInput.x * moveSpeed, _rb.linearVelocity.y);
     }
     private void Update()
     {
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_isGrounded)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
         }
     }
     private void CheckGround()
