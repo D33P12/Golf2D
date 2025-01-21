@@ -52,7 +52,7 @@ public class GolfPlayerController : MonoBehaviour
         _currentAngle = startingAngle;
         _currentForce = initialForce;
         _shootDirection = Vector2.right;
-        //Show the shooting direction
+        //Show the shooting direction and start aiming
         coreTrans.gameObject.SetActive(true);
         CanChangeDirection(true);
     }
