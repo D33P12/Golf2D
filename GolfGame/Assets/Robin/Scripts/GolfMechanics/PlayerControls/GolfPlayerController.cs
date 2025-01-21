@@ -7,7 +7,6 @@ public class GolfPlayerController : MonoBehaviour
     //Common variables
     [NonSerialized] public InputManager inputManager;  //We use input manager to control the golf ball
     [SerializeField] private Transform coreTrans;
-    private Vector2 _shootDirection = Vector2.right;
 
     [Header("Player Aiming")]
     [SerializeField] private float aimSpeed = 45f;
@@ -16,7 +15,7 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float minAim = 0f;
     [SerializeField] private float maxAim = 180f;
 
-    private float currentAngle;
+    private float _currentAngle;
     private bool _canChangeDirection = true;
 
     [Header("Player Charging")]
@@ -26,10 +25,12 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float maxForce = 100f;
 
     [NonSerialized] public bool isCharging;
-    private float currentForce;
+    private float _currentForce;
 
     [Header("Player Shoot")]
     [SerializeField] private float friction = 2.0f;
+
+    private Vector2 _shootDirection = Vector2.right;
     private Rigidbody2D ballRb;
     #endregion
 
@@ -44,6 +45,17 @@ public class GolfPlayerController : MonoBehaviour
 
         ballRb = gameObject.GetComponent<Rigidbody2D>();
     }
+
+    public void Initialization()
+    {
+        //Initialize current values
+        _currentAngle = startingAngle;
+        _currentForce = initialForce;
+        _shootDirection = Vector2.right;
+        //Show the shooting direction
+        coreTrans.gameObject.SetActive(true);
+        CanChangeDirection(true);
+    }
     #endregion
 
     #region Player Aiming
@@ -53,21 +65,12 @@ public class GolfPlayerController : MonoBehaviour
             HandlingAiming();
     }
 
-    public void StartAiming()
-    {
-        //Set initial shoot direction
-        currentAngle = startingAngle;
-        //Show the shooting direction
-        coreTrans.gameObject.SetActive(true);
-        CanChangeDirection(true);
-    }
-
     private void HandlingAiming()
     {        
         //Handling the function of player aiming
         Vector2 shootDirectionInput = inputManager.GetShootDirection();
-        currentAngle = currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
-        coreTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(currentAngle, minAim, maxAim));
+        _currentAngle = _currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
+        coreTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(_currentAngle, minAim, maxAim));
     }
 
     public void CanChangeDirection(bool value)
@@ -77,19 +80,15 @@ public class GolfPlayerController : MonoBehaviour
     #endregion
 
     #region Player Charging
-    public void StartCharging()
-    {
-        currentForce = initialForce;
-    }
 
     public void HandlingCharging()
     {
-        currentForce = currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
+        _currentForce = _currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
 
-        if (currentForce > maxForce)    // if current force is higher than the max force the player can reach
-            currentForce = maxForce;    // keep it at the maximum force
+        if (_currentForce > maxForce)    // if current force is higher than the max force the player can reach
+            _currentForce = maxForce;    // keep it at the maximum force
 
-        Debug.Log(currentForce);
+        Debug.Log(_currentForce);
     }
 
     public void FinishCharging()
@@ -112,8 +111,8 @@ public class GolfPlayerController : MonoBehaviour
     {
         if (ballRb == null) return;
 
-        _shootDirection = Quaternion.AngleAxis(currentAngle, Vector3.forward) * _shootDirection;
-        ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
+        _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
+        ballRb.AddForce(_shootDirection * _currentForce / friction, ForceMode2D.Impulse);
     }
 
     public bool isBallStopped()

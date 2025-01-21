@@ -14,8 +14,6 @@ public class PlayerCharging : BaseState
     {
         //Enter the charging state, start charging before shoot
         Debug.Log("Start charging");
-
-        _golfStateMachine.PlayerController.StartCharging();
     }
 
     public override void UpdateState()

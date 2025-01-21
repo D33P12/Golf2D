@@ -14,7 +14,7 @@ public class PlayerAiming : BaseState
         //Enter the aiming state, we start aiming
         Debug.Log("Start aiming");
 
-        _golfStateMachine.PlayerController.StartAiming();
+        _golfStateMachine.PlayerController.Initialization();
     }
 
     public override void UpdateState()
