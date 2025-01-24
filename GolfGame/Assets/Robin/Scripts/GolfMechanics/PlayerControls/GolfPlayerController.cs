@@ -39,6 +39,8 @@ public class GolfPlayerController : MonoBehaviour
     {
         //Set the ball's rigid body 2D
         _ballRb = gameObject.GetComponent<Rigidbody2D>();
+        //Hide the force indicator when start
+        coreTrans.gameObject.SetActive(false);
     }
 
     private void Awake()
