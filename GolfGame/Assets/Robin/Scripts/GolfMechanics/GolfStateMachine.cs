@@ -8,11 +8,13 @@ public class GolfStateMachine : BaseStateMachine
     private PlayerAiming _playerAimingState;
     private PlayerCharging _playerChargingState;
     private PlayerShoot _playerShootState;
+    private PlayerStart _playerStartState;
 
     //Create a public property for each state
     public PlayerAiming PlayerAimingState => _playerAimingState;
     public PlayerCharging PlayerChargingState => _playerChargingState;
     public PlayerShoot PlayerShootState => _playerShootState;
+    public PlayerStart PlayerStartState => _playerStartState;
     #endregion
 
     #region Keep track of all supporting components
@@ -28,6 +30,7 @@ public class GolfStateMachine : BaseStateMachine
         _playerAimingState = new PlayerAiming(this);
         _playerChargingState = new PlayerCharging(this);
         _playerShootState = new PlayerShoot(this);
+        _playerStartState = new PlayerStart(this);
 
         _playerController = GetComponent<GolfPlayerController>();
     }
@@ -35,6 +38,6 @@ public class GolfStateMachine : BaseStateMachine
     private void Start()
     {
         // Switch to the default state for the golf player, which will be the aiming state
-        SetState(PlayerShootState);
+        SetState(PlayerStartState);
     }
 }

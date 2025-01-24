@@ -115,8 +115,6 @@ public class GolfPlayerController : MonoBehaviour
     {
         if (_ballRb == null) return;
 
-        if (currentForce == 0) return;
-
         Debug.Log("Shoot!");
         _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
         _ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
