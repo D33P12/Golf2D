@@ -22,7 +22,7 @@ public class MouseTestingUse : MonoBehaviour
             {
                 overCollider2D.transform.GetComponent<GroundTiles>().DeleteTile(_mousePosition);
             }
-            Debug.Log("Mouse Position:" + Input.mousePosition);
+            //Debug.Log("Mouse Position:" + Input.mousePosition);
         }
     }
 }
