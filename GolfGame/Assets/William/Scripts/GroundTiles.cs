@@ -22,17 +22,20 @@ public class GroundTiles : MonoBehaviour
 {
     public Tilemap tilemap;
     public Vector3Int forTestingOnly;
-    public int secondsToLock;
+    public int secondsToLock = 5;
+    private Transform fieldContainerTransform;
 
     private void Start()
     {
         tilemap = GetComponent<Tilemap>();
+        fieldContainerTransform = this.gameObject.transform.parent.parent;
     }
 
     public void DeleteTile(Vector3 Pos)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(Pos);
         Debug.Log("Converted To:" + cellPosition);
+        Debug.Log(tilemap.GetTile(cellPosition));
         tilemap.SetTile(cellPosition, null);
     }
 
@@ -91,16 +94,21 @@ public class GroundTiles : MonoBehaviour
 
         //so if I do this right and it does not infinite loop, result position and tile should have them
         var separatedGrid = new GameObject("Grid").AddComponent<Grid>();
+        separatedGrid.cellSize = new Vector3(1, 1, 0);
+        separatedGrid.transform.SetParent(fieldContainerTransform);
+
         var separatedTilemap = new GameObject("Tilemap").AddComponent<Tilemap>();
         separatedTilemap.AddComponent<TilemapRenderer>();
         separatedTilemap.AddComponent<TilemapCollider2D>();
+        separatedTilemap.AddComponent<GroundTiles>();
+        separatedTilemap.gameObject.layer = LayerMask.NameToLayer("Ground");
         separatedTilemap.transform.SetParent(separatedGrid.gameObject.transform);
         separatedTilemap.tileAnchor = new Vector3(0, 1, 0);
 
         for(int i = 0; i < resultPosition.Count; i++)
         {
-            tilemap.SetTile(resultPosition[i], null);
             separatedTilemap.SetTile(resultPosition[i], resultTile[i]);
+            tilemap.SetTile(resultPosition[i], null);
         }
         var separatedRigidbody2D = separatedTilemap.AddComponent<Rigidbody2D>();
         StartCoroutine(LockInPiece(separatedRigidbody2D));
@@ -110,6 +118,7 @@ public class GroundTiles : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsToLock);
         toLock.bodyType = RigidbodyType2D.Static;
+        
 
     }
    

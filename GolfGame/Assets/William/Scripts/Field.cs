@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mole : MonoBehaviour
+public class Field : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,17 +13,4 @@ public class Mole : MonoBehaviour
     {
         
     }
-
-    public void SetDiggingPoints()
-    { 
-        //find golf hole and ball
-
-    }
-    public void DiggingPrepRoute()
-    { 
-        
-    }
-
-    public void StartDigging()
-    { }
 }
