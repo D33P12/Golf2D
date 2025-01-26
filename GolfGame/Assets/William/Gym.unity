@@ -1387,6 +1387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 270884194}
+  - component: {fileID: 270884195}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -1410,6 +1411,19 @@ Transform:
   - {fileID: 1370951912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270884195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270884193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0ecb08586cfb642b1b5da53a293075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forTestingOnly: {x: 0, y: 0, z: 0}
 --- !u!4 &386061974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3283378903515908340, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
@@ -2105,6 +2119,7 @@ GameObject:
   - component: {fileID: 714931496}
   - component: {fileID: 714931499}
   - component: {fileID: 714931500}
+  - component: {fileID: 714931501}
   m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
@@ -13597,7 +13612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76270852971b3874c820a21677767dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
+  tilemap: {fileID: 714931497}
   forTestingOnly: {x: -5, y: -8, z: 0}
   secondsToLock: 5
 --- !u!19719996 &714931500
@@ -13638,6 +13653,33 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!50 &714931501
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714931494}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1098090854
 GameObject:
   m_ObjectHideFlags: 0
@@ -14402,9 +14444,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714931499}
-        m_TargetAssemblyTypeName: GroundTiles, Assembly-CSharp
-        m_MethodName: StartTest
+      - m_Target: {fileID: 270884195}
+        m_TargetAssemblyTypeName: Field, Assembly-CSharp
+        m_MethodName: DoTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

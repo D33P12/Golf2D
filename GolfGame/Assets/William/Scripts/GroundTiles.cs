@@ -24,11 +24,16 @@ public class GroundTiles : MonoBehaviour
     public Vector3Int forTestingOnly;
     public int secondsToLock = 5;
     private Transform fieldContainerTransform;
+    private Rigidbody2D rb_self;
+    private bool willSeparate;
+    
 
     private void Start()
     {
         tilemap = GetComponent<Tilemap>();
-        fieldContainerTransform = this.gameObject.transform.parent.parent;
+        fieldContainerTransform = Field.Instance.gameObject.transform;
+        rb_self = GetComponent<Rigidbody2D>();
+        Field.Instance.AddTiles(this);
     }
 
     public void DeleteTile(Vector3 Pos)
@@ -42,7 +47,6 @@ public class GroundTiles : MonoBehaviour
     public void SetTile(Vector3 Pos, TileState setTo)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(Pos);
-        
     }
 
     public void StartTest()
@@ -51,6 +55,7 @@ public class GroundTiles : MonoBehaviour
     }
     public void SeparateTiles(Vector3Int Pos) //BFSearch for all the tiles
     {
+        willSeparate = false;
         var resultPosition = new List<Vector3Int>();
         var resultTile = new List<TileBase>();
 
@@ -70,6 +75,7 @@ public class GroundTiles : MonoBehaviour
             toVisit.Push(firstPos + Vector3Int.right + Vector3Int.up);
             toVisit.Push(firstPos + Vector3Int.right);
             toVisit.Push(firstPos + Vector3Int.right + Vector3Int.down);
+            willSeparate = true;
         }
         Debug.Log(toVisit.Count);
         
@@ -92,26 +98,35 @@ public class GroundTiles : MonoBehaviour
             }
         }
 
-        //so if I do this right and it does not infinite loop, result position and tile should have them
-        var separatedGrid = new GameObject("Grid").AddComponent<Grid>();
-        separatedGrid.cellSize = new Vector3(1, 1, 0);
-        separatedGrid.transform.SetParent(fieldContainerTransform);
-
-        var separatedTilemap = new GameObject("Tilemap").AddComponent<Tilemap>();
-        separatedTilemap.AddComponent<TilemapRenderer>();
-        separatedTilemap.AddComponent<TilemapCollider2D>();
-        separatedTilemap.AddComponent<GroundTiles>();
-        separatedTilemap.gameObject.layer = LayerMask.NameToLayer("Ground");
-        separatedTilemap.transform.SetParent(separatedGrid.gameObject.transform);
-        separatedTilemap.tileAnchor = new Vector3(0, 1, 0);
-
-        for(int i = 0; i < resultPosition.Count; i++)
+        if (willSeparate)
         {
-            separatedTilemap.SetTile(resultPosition[i], resultTile[i]);
-            tilemap.SetTile(resultPosition[i], null);
+            willSeparate = false;
+            //so if I do this right and it does not infinite loop, result position and tile should have them
+            var separatedGrid = new GameObject("Grid").AddComponent<Grid>();
+            separatedGrid.cellSize = new Vector3(1, 1, 0);
+            separatedGrid.transform.SetParent(fieldContainerTransform);
+
+            var separatedTilemap = new GameObject("Tilemap").AddComponent<Tilemap>();
+            separatedTilemap.AddComponent<TilemapRenderer>();
+            separatedTilemap.AddComponent<TilemapCollider2D>();
+            separatedTilemap.AddComponent<GroundTiles>();
+            Field.Instance.AddTiles(separatedTilemap.GetComponent<GroundTiles>());
+            separatedTilemap.gameObject.layer = LayerMask.NameToLayer("Ground");
+            separatedTilemap.transform.SetParent(separatedGrid.gameObject.transform);
+            separatedTilemap.tileAnchor = new Vector3(0, 1, 0);
+
+            for (int i = 0; i < resultPosition.Count; i++)
+            {
+                separatedTilemap.SetTile(resultPosition[i], resultTile[i]);
+                tilemap.SetTile(resultPosition[i], null);
+            }
+            var separatedRigidbody2D = separatedTilemap.AddComponent<Rigidbody2D>();
+            rb_self.bodyType = RigidbodyType2D.Dynamic;
+
+            StartCoroutine(LockInPiece(separatedRigidbody2D));
+            StartCoroutine(LockInPiece(rb_self));
         }
-        var separatedRigidbody2D = separatedTilemap.AddComponent<Rigidbody2D>();
-        StartCoroutine(LockInPiece(separatedRigidbody2D));
+        
     }
 
     IEnumerator LockInPiece(Rigidbody2D toLock)
@@ -119,7 +134,6 @@ public class GroundTiles : MonoBehaviour
         yield return new WaitForSeconds(secondsToLock);
         toLock.bodyType = RigidbodyType2D.Static;
         
-
     }
    
 }
