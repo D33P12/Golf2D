@@ -3,18 +3,18 @@ using UnityEngine;
 public class Mole : MonoBehaviour
 {
 
-    [SerializeField] private GameObject golfBallRef;
+    /*[SerializeField] private GameObject golfBallRef;
     [SerializeField] private GameObject golfHoleRef;
     [SerializeField] private float maxDigHeight;
     [SerializeField] private float minDigHeight;
     [SerializeField] private float minDigX;
-    [SerializeField] private float maxDigX;
+    [SerializeField] private float maxDigX;*/
     [SerializeField] private Transform moleTransform;
 
-    //temp values
+    /*//temp values
     [SerializeField] private float randomTempX;
     [SerializeField] private float randomTempY;
-    [SerializeField] private Vector3 randomVector;
+    [SerializeField] private Vector3 randomVector;*/
 
     [SerializeField] Vector3 DigPointA;
     [SerializeField] Vector3 DigPointB;
@@ -23,40 +23,50 @@ public class Mole : MonoBehaviour
 
     [SerializeField] private LayerMask inPlatform;
 
+    [SerializeField] private float TestValue;
 
-    public void SetDiggingPoints()
-    {
-        //rules: points picked must not be below golfball directly, and be in front of golf hole
-        //lets do the digging down first, so I need a point that is a tile with a null above. avoiding the golfball
+    [SerializeField] private float digSpeed;
 
-        randomTempX = Random.Range(minDigX, maxDigX);
 
-        while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 && (randomTempX < golfHoleRef.transform.position.x - 2|| randomTempX > golfHoleRef.transform.position.x + 2))
-        {
-            randomTempX = Random.Range(minDigX, maxDigX);
-        }
-
-        randomVector = new Vector3(randomTempX,maxDigHeight,0);
-        randomTempY = maxDigHeight;
-        Collider2D overCollider2D = Physics2D.OverlapCircle(randomVector, 0.01f, inPlatform);
-        while (overCollider2D == null)
-        {
-            randomTempY--;
-            randomVector = new Vector3(randomTempX, randomTempY, 0);
-            overCollider2D = Physics2D.OverlapCircle(randomVector, 0.01f, inPlatform);
-        }
-
-        DigPointA = randomVector;
-        moleTransform.position = DigPointA;
-    }
-    public void DiggingPrepRoute()
+    public void SetPoints(Vector3 P_AA, Vector3 P_AB, Vector3 P_BA, Vector3 P_BB)
     { 
-        //draw circle or bezier curve
-
+        DigPointA = P_AA;
+        DigPointB = P_BA;
+        PointAHeightDepth = P_AB;
+        PointBHeightDepth = P_BB;
     }
 
-    public void StartDigging()
+    public void StartDigging(Vector3 P_1, Vector3 P_2, Vector3 P_3, Vector3 P_4)
     { 
         //move mole transform
+        moleTransform.position = Bezier(P_1,P_2,P_3,P_4, TestValue);
+        moleTransform.rotation = Quaternion.Euler(0, 0, TestValue * 180f);
+
+    }
+
+    public Vector3 Bezier(Vector3 P_1, Vector3 P_2, Vector3 P_3, Vector3 P_4, float Value)
+    { 
+        Vector3 A = Vector3.Lerp(P_1, P_2, Value);
+        Vector3 B = Vector3.Lerp(P_2, P_3, Value);
+        Vector3 C = Vector3.Lerp(P_3, P_4, Value);
+
+        Vector3 D = Vector3.Lerp(A, B, Value);
+        Vector3 E = Vector3.Lerp(B, C, Value);
+
+        return Vector3.Lerp(D, E, Value);
+    }
+
+    void FixedUpdate()
+    {
+        if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
+        {
+            StartDigging(DigPointA, PointAHeightDepth, PointBHeightDepth, DigPointB);
+        }
+    }
+
+
+    IEnumerator DoDig()
+    { 
+        
     }
 }
