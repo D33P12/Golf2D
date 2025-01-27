@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Tilemaps;
+using Unity.VisualScripting;
 
 public enum TileState
 {
@@ -20,110 +21,119 @@ public enum TileState
 public class GroundTiles : MonoBehaviour
 {
     public Tilemap tilemap;
+    public Vector3Int forTestingOnly;
+    public int secondsToLock = 5;
+    private Transform fieldContainerTransform;
+    private Rigidbody2D rb_self;
+    private bool willSeparate;
+    
 
     private void Start()
     {
         tilemap = GetComponent<Tilemap>();
+        fieldContainerTransform = Field.Instance.gameObject.transform;
+        rb_self = GetComponent<Rigidbody2D>();
+        Field.Instance.AddTiles(this);
     }
 
     public void DeleteTile(Vector3 Pos)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(Pos);
         Debug.Log("Converted To:" + cellPosition);
+        Debug.Log(tilemap.GetTile(cellPosition));
         tilemap.SetTile(cellPosition, null);
     }
 
     public void SetTile(Vector3 Pos, TileState setTo)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(Pos);
-        
     }
 
-    public void SeparateTiles(Vector3 Pos) //BFSearch for all the tiles
+    public void StartTest()
     {
+        SeparateTiles(forTestingOnly);
+    }
+    public void SeparateTiles(Vector3Int Pos) //BFSearch for all the tiles
+    {
+        willSeparate = false;
         var resultPosition = new List<Vector3Int>();
         var resultTile = new List<TileBase>();
 
         Stack<Vector3Int> toVisit = new Stack<Vector3Int>();
         
 
-        if (tilemap.WorldToCell(Pos) != null)
+        if (tilemap.GetTile(Pos) != null)
         {
-            Vector3Int firstPos = tilemap.WorldToCell(Pos);
+            Vector3Int firstPos = Pos;
             resultPosition.Add(firstPos);
             resultTile.Add(tilemap.GetTile(tilemap.WorldToCell(Pos)));
             toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
-            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.up);
+            toVisit.Push(firstPos + Vector3Int.left);
+            toVisit.Push(firstPos + Vector3Int.left + Vector3Int.down);
+            toVisit.Push(firstPos + Vector3Int.up);
+            toVisit.Push(firstPos + Vector3Int.down);
+            toVisit.Push(firstPos + Vector3Int.right + Vector3Int.up);
+            toVisit.Push(firstPos + Vector3Int.right);
+            toVisit.Push(firstPos + Vector3Int.right + Vector3Int.down);
+            willSeparate = true;
         }
-
+        Debug.Log(toVisit.Count);
         
         while (toVisit.Count > 0)
         {
             Vector3Int visitingPosition = toVisit.Pop();
-            if (tilemap.WorldToCell(visitingPosition) != null)
+            if (tilemap.GetTile(visitingPosition) != null && !resultPosition.Contains(visitingPosition))
             {
-                resultPosition.Add(tilemap.WorldToCell(Pos));
-                resultTile.Add(tilemap.GetTile(tilemap.WorldToCell(Pos)));
+                resultPosition.Add(visitingPosition);
+                resultTile.Add(tilemap.GetTile(visitingPosition));
 
-            }
-            else {
-                
+                toVisit.Push(visitingPosition + Vector3Int.left + Vector3Int.up);
+                toVisit.Push(visitingPosition + Vector3Int.left);
+                toVisit.Push(visitingPosition + Vector3Int.left + Vector3Int.down);
+                toVisit.Push(visitingPosition + Vector3Int.up);
+                toVisit.Push(visitingPosition + Vector3Int.down);
+                toVisit.Push(visitingPosition + Vector3Int.right + Vector3Int.up);
+                toVisit.Push(visitingPosition + Vector3Int.right);
+                toVisit.Push(visitingPosition + Vector3Int.right + Vector3Int.down);
             }
         }
+
+        if (willSeparate)
+        {
+            willSeparate = false;
+            //so if I do this right and it does not infinite loop, result position and tile should have them
+            var separatedGrid = new GameObject("Grid").AddComponent<Grid>();
+            separatedGrid.cellSize = new Vector3(1, 1, 0);
+            separatedGrid.transform.SetParent(fieldContainerTransform);
+
+            var separatedTilemap = new GameObject("Tilemap").AddComponent<Tilemap>();
+            separatedTilemap.AddComponent<TilemapRenderer>();
+            separatedTilemap.AddComponent<TilemapCollider2D>();
+            separatedTilemap.AddComponent<GroundTiles>();
+            Field.Instance.AddTiles(separatedTilemap.GetComponent<GroundTiles>());
+            separatedTilemap.gameObject.layer = LayerMask.NameToLayer("Ground");
+            separatedTilemap.transform.SetParent(separatedGrid.gameObject.transform);
+            separatedTilemap.tileAnchor = new Vector3(0, 1, 0);
+
+            for (int i = 0; i < resultPosition.Count; i++)
+            {
+                separatedTilemap.SetTile(resultPosition[i], resultTile[i]);
+                tilemap.SetTile(resultPosition[i], null);
+            }
+            var separatedRigidbody2D = separatedTilemap.AddComponent<Rigidbody2D>();
+            rb_self.bodyType = RigidbodyType2D.Dynamic;
+
+            StartCoroutine(LockInPiece(separatedRigidbody2D));
+            StartCoroutine(LockInPiece(rb_self));
+        }
+        
     }
 
-    //credit to @dmgregory for this code, https://gamedev.stackexchange.com/questions/195065/how-to-separate-tilemaps-unity
-    /*public List<List<Vector3Int>> FindConnectedGroups(Tilemap world)
+    IEnumerator LockInPiece(Rigidbody2D toLock)
     {
-        var visited = new List<Vector3Int>();
-        var dirs = new List<Vector3Int> { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-        var groups = new List<List<Vector3Int>>();
-        for (int x = world.cellBounds.xMin; x < world.cellBounds.xMax; x++)
-        {
-            for (int y = world.cellBounds.yMin; y < world.cellBounds.yMax; y++)
-            {
-                var group = new List<Vector3Int>();
-                var visit = new List<Vector3Int>();
-                var tile = new Vector3Int(x, y, 0);
-                if (!visited.Contains(tile))
-                {
-                    visit.Add(tile);
-                    for (int z = 0; z < visit.Count; z++)
-                    {
-                        var t = visit[z];
-                        if (!visited.Contains(t) && world.GetTile(t))
-                        {
-                            visited.Add(t);
-                            group.Add(t);
-                            foreach (var d in dirs)
-                            {
-                                if (!visited.Contains(t + d))
-                                {
-                                    visit.Add(t + d);
-                                }
-                            }
-                        }
-                        else if (!world.GetTile(t))
-                        {
-                            visit.Remove(t);
-                        }
-                    }
-                }
-                if (group.Count > 0)
-                {
-                    groups.Add(group);
-                }
-            }
-        }
-        visited.Clear();
-        return groups;
-
-    }*/
-
+        yield return new WaitForSeconds(secondsToLock);
+        toLock.bodyType = RigidbodyType2D.Static;
+        
+    }
+   
 }
