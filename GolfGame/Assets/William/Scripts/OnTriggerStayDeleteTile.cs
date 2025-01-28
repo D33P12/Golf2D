@@ -10,10 +10,10 @@ public class OnTriggerStayDeleteTile : MonoBehaviour
     void Update()
     {
 
-        Collider2D overCollider2D = Physics2D.OverlapCircle(transform.position, 0.1f, inPlatform);
+        Collider2D overCollider2D = Physics2D.OverlapCircle(this.gameObject.transform.position, 0.01f, inPlatform);
         if (overCollider2D != null)
         {
-            overCollider2D.transform.GetComponent<GroundTiles>().DeleteTile(transform.position);
+            overCollider2D.transform.GetComponent<GroundTiles>().DeleteTile(this.gameObject.transform.position);
         }
 
     }
