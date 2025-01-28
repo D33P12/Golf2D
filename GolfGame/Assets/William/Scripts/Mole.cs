@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Mole : MonoBehaviour
 {
@@ -23,10 +25,16 @@ public class Mole : MonoBehaviour
 
     [SerializeField] private LayerMask inPlatform;
 
-    [SerializeField] private float TestValue;
+    [SerializeField] private float timeValue;
 
     [SerializeField] private float digSpeed;
 
+    [SerializeField] private bool moleIsDigging;
+
+    void Start()
+    { 
+        moleIsDigging = false;
+    }
 
     public void SetPoints(Vector3 P_AA, Vector3 P_AB, Vector3 P_BA, Vector3 P_BB)
     { 
@@ -36,11 +44,20 @@ public class Mole : MonoBehaviour
         PointBHeightDepth = P_BB;
     }
 
-    public void StartDigging(Vector3 P_1, Vector3 P_2, Vector3 P_3, Vector3 P_4)
+    public void StartDigging()
+    {
+        timeValue = 0f;
+        if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
+        {
+            moleIsDigging = true;
+        }
+    }
+
+    public void Digging(Vector3 P_1, Vector3 P_2, Vector3 P_3, Vector3 P_4)
     { 
         //move mole transform
-        moleTransform.position = Bezier(P_1,P_2,P_3,P_4, TestValue);
-        moleTransform.rotation = Quaternion.Euler(0, 0, TestValue * 180f);
+        moleTransform.position = Bezier(P_1,P_2,P_3,P_4, timeValue);
+        moleTransform.rotation = Quaternion.Euler(0, 0, timeValue * 180f);
 
     }
 
@@ -58,15 +75,21 @@ public class Mole : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
+        if (moleIsDigging)
         {
-            StartDigging(DigPointA, PointAHeightDepth, PointBHeightDepth, DigPointB);
+            timeValue += Time.deltaTime * digSpeed;
+            if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
+            {
+                Digging(DigPointA, PointAHeightDepth, PointBHeightDepth, DigPointB);
+            }
+
+            if (timeValue > 1)
+            { 
+                moleIsDigging = false;
+                timeValue = 0;
+            }
         }
-    }
-
-
-    IEnumerator DoDig()
-    { 
         
     }
+
 }

@@ -62,12 +62,13 @@ public class Pathfinder : MonoBehaviour
 
     public void PathFindPointB()
     {
-        randomTempX = Random.Range(pathfindPointAA.x, maxDigXB);
+        randomTempX = Random.Range(pathfindPointAA.x + 2f, maxDigXB);
 
-        while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 && (randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
+        while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 || Mathf.Abs(randomTempX - golfHoleRef.transform.position.x) < 3)
         {
-            randomTempX = Random.Range(pathfindPointAA.x, maxDigXB);
+            randomTempX = Random.Range(pathfindPointAA.x + 2f, maxDigXB);
         }
+
         randomVector = new Vector3(randomTempX, maxDigHeight, 0);
         randomTempY = maxDigHeight;
 
@@ -90,5 +91,7 @@ public class Pathfinder : MonoBehaviour
         pathfindPointAB = new Vector3(pathfindPointAA.x +2f, pathfindPointAA.y - randomTempX, 0);
         PathfindPointBB = new Vector3(pathfindPointBA.x +2f, pathfindPointBA.y - randomTempX, 0);
         output.SetPoints(pathfindPointAA, pathfindPointAB, pathfindPointBA, PathfindPointBB);
+        //relocate this after
+        //output.StartDigging();
     }
 }
