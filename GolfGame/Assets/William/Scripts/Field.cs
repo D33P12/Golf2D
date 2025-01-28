@@ -6,29 +6,25 @@ using Unity.VisualScripting;
 
 public class Field : Singleton<Field>
 {
-    private List<GroundTiles> tileList = new List<GroundTiles>();
-    public Vector3Int forTestingOnly;
+    private List<GameObject> tileList = new List<GameObject>();
+    public Vector3Int firstTileInMap;
 
-    public void AddTiles(GroundTiles tileToAdd)
+    public void AddTiles(GameObject tileToAdd)
     {
         tileList.Add(tileToAdd);
     }
 
     public void BreakGrid(Vector3Int cellPosition)
     {
-        /*foreach (GroundTiles tileToBreak in tileList)
-        {
-            tileToBreak.SeparateTiles(cellPosition);
-        }*/
-        Debug.Log("this should be 1" + tileList.Count);
+        Debug.Log(tileList.Count);
         for (int i = 0; i < tileList.Count; i++)
         {
-            tileList[i].SeparateTiles(cellPosition);
+           tileList[i].GetComponent<GroundTiles>().StartTest(cellPosition);
         }
     }
 
     public void DoTest()
     {
-        BreakGrid(forTestingOnly);
+        BreakGrid(firstTileInMap);
     }
 }

@@ -5,11 +5,6 @@ public class MouseTestingUse : MonoBehaviour
     Vector3 _mousePosition;
     [SerializeField] private LayerMask inPlatform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_mousePosition, 0.2f);
-    }
 
     // Update is called once per frame
     void Update()
