@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Cinemachine;
 
 public class Mole : MonoBehaviour
 {
 
-    /*[SerializeField] private GameObject golfBallRef;
-    [SerializeField] private GameObject golfHoleRef;
+    [SerializeField] private GameObject golfBallRef;
+    /*[SerializeField] private GameObject golfHoleRef;
     [SerializeField] private float maxDigHeight;
     [SerializeField] private float minDigHeight;
     [SerializeField] private float minDigX;
@@ -31,6 +32,8 @@ public class Mole : MonoBehaviour
 
     [SerializeField] private bool moleIsDigging;
 
+    [SerializeField] private CinemachineVirtualCamera cameraObject;
+
     void Start()
     { 
         moleIsDigging = false;
@@ -49,6 +52,7 @@ public class Mole : MonoBehaviour
         timeValue = 0f;
         if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
         {
+            cameraObject.Follow = this.gameObject.transform;
             moleIsDigging = true;
         }
     }
@@ -86,6 +90,7 @@ public class Mole : MonoBehaviour
             if (timeValue > 1)
             { 
                 moleIsDigging = false;
+                cameraObject.Follow = golfBallRef.transform;
                 timeValue = 0;
             }
         }

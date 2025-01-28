@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class Field : Singleton<Field>
 {
     private List<GameObject> tileList = new List<GameObject>();
-    public Vector3Int forTestingOnly;
+    public Vector3Int firstTileInMap;
 
     public void AddTiles(GameObject tileToAdd)
     {
@@ -25,6 +25,6 @@ public class Field : Singleton<Field>
 
     public void DoTest()
     {
-        BreakGrid(forTestingOnly);
+        BreakGrid(firstTileInMap);
     }
 }
