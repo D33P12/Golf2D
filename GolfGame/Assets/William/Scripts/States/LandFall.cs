@@ -1,30 +1,29 @@
 using UnityEngine;
 
-public class PlayerShoot : BaseState
+public class LandFall : BaseState
 {
     private GolfStateMachine _golfStateMachine;
 
     //Change this method name the same as the class name
-    public PlayerShoot(GolfStateMachine stateMachine)
+    public LandFall(GolfStateMachine stateMachine)
     {
         _golfStateMachine = stateMachine;
     }
 
     public override void EnterState()
     {
-        _golfStateMachine.PlayerController.ShootBall();
+        _golfStateMachine.PlayerController.TurnStaticThenDynamic();
+        _golfStateMachine.FieldObject.DropGridFromMole();
+        _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
     }
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.isBallStopped())
-        {
-            _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
-        }
+
     }
 
     public override void ExitState()
     {
-        
+
     }
 }

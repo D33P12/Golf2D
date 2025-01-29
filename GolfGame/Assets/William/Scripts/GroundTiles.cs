@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.Tilemaps;
 using Unity.VisualScripting;
 
-public enum TileState
+public enum TileState //not yet used for another feature later
 {
     Empty,
     RegularFull,
@@ -34,13 +34,14 @@ public class GroundTiles : MonoBehaviour
         Field.Instance.AddTiles(this.gameObject);
         tilemap = this.gameObject.GetComponent<Tilemap>();
         rb_self = this.gameObject.GetComponent<Rigidbody2D>();
+        TurnDynamicThenStatic();
     }
 
     public void DeleteTile(Vector3 Pos)
     {
         Vector3Int cellPosition = tilemap.WorldToCell(Pos);
-        Debug.Log("Converted To:" + cellPosition);
-        Debug.Log(tilemap);
+       // Debug.Log("Converted To:" + cellPosition);
+        //Debug.Log(tilemap);
         tilemap.SetTile(cellPosition, null);
     }
 
@@ -124,18 +125,24 @@ public class GroundTiles : MonoBehaviour
             /*var separatedRigidbody2D = separatedTilemap.AddComponent<Rigidbody2D>();
             separatedTilemap.AddComponent<GroundTiles>();
             separatedTilemap.AddComponent<TilemapCollider2D>();*/
-            var separatedRigidbody2D = separatedTilemap.gameObject.GetComponent<Rigidbody2D>();
-            rb_self.bodyType = RigidbodyType2D.Dynamic;
+            //var separatedRigidbody2D = separatedTilemap.gameObject.GetComponent<Rigidbody2D>();
+            //rb_self.bodyType = RigidbodyType2D.Dynamic;
 
 
 
-            StartCoroutine(LockInPiece(separatedRigidbody2D));
-            StartCoroutine(LockInPiece(rb_self));
+            //StartCoroutine(LockInPiece(separatedRigidbody2D));
+            //StartCoroutine(LockInPiece(rb_self));
         }
 
         
         
         
+    }
+
+    public void TurnDynamicThenStatic()
+    {
+        rb_self.bodyType = RigidbodyType2D.Dynamic;
+        StartCoroutine(LockInPiece(rb_self));
     }
 
     IEnumerator LockInPiece(Rigidbody2D toLock)

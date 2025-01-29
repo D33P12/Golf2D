@@ -25,18 +25,23 @@ public class Pathfinder : MonoBehaviour
 
     [SerializeField] private Mole output;
 
+    private bool finishedRunning;
+
     public void Pathfind()
     {
         //rules: points picked must not be below golfball directly, and be in front of golf hole
         //lets do the digging down first, so I need a point that is a tile with a null above. avoiding the golfball
-
+        finishedRunning = false;
         randomTempX = Random.Range(minDigX, maxDigX);
 
-        while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 && (randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
+        /*while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 && (randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
+        {
+            randomTempX = Random.Range(minDigX, maxDigX);
+        }*/
+        while ((randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
         {
             randomTempX = Random.Range(minDigX, maxDigX);
         }
-
         randomVector = new Vector3(randomTempX, maxDigHeight, 0);
         randomTempY = maxDigHeight;
         
@@ -91,7 +96,12 @@ public class Pathfinder : MonoBehaviour
         pathfindPointAB = new Vector3(pathfindPointAA.x +2f, pathfindPointAA.y - randomTempX, 0);
         PathfindPointBB = new Vector3(pathfindPointBA.x +2f, pathfindPointBA.y - randomTempX, 0);
         output.SetPoints(pathfindPointAA, pathfindPointAB, pathfindPointBA, PathfindPointBB);
-        //relocate this after
-        //output.StartDigging();
+        finishedRunning = true;
+
+    }
+
+    public bool FinishedRunning()
+    { 
+        return finishedRunning;
     }
 }
