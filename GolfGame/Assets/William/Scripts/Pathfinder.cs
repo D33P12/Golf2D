@@ -67,12 +67,12 @@ public class Pathfinder : MonoBehaviour
 
     public void PathFindPointB()
     {
-        randomTempX = Random.Range(pathfindPointAA.x + 2f, maxDigXB);
+        randomTempX = Random.Range(minDigX, maxDigXB);
 
-        while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 || Mathf.Abs(randomTempX - golfHoleRef.transform.position.x) < 3)
+        /*while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 || Mathf.Abs(randomTempX - golfHoleRef.transform.position.x) < 3)
         {
             randomTempX = Random.Range(pathfindPointAA.x + 2f, maxDigXB);
-        }
+        }*/
 
         randomVector = new Vector3(randomTempX, maxDigHeight, 0);
         randomTempY = maxDigHeight;
@@ -91,6 +91,13 @@ public class Pathfinder : MonoBehaviour
 
     public void CalculateRemainPoints()
     {
+        //do a check here instead
+        if (pathfindPointBA.x < pathfindPointAA.x)
+        {
+            Vector3 tempVector3 = new Vector3(pathfindPointAA.x, pathfindPointAA.y, 0);
+            pathfindPointAA = new Vector3(pathfindPointBA.x, pathfindPointBA.y, 0);
+            pathfindPointBA = new Vector3(tempVector3.x, tempVector3.y, 0);
+        }
 
         randomTempX = Random.Range(4, maxDigHeight);
         pathfindPointAB = new Vector3(pathfindPointAA.x +2f, pathfindPointAA.y - randomTempX, 0);
