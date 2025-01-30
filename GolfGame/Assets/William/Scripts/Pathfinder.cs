@@ -38,10 +38,10 @@ public class Pathfinder : MonoBehaviour
         {
             randomTempX = Random.Range(minDigX, maxDigX);
         }*/
-        while ((randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
+        /*while ((randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
         {
             randomTempX = Random.Range(minDigX, maxDigX);
-        }
+        }*/
         randomVector = new Vector3(randomTempX, maxDigHeight, 0);
         randomTempY = maxDigHeight;
         
