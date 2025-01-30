@@ -138,7 +138,7 @@ public class GolfPlayerController : MonoBehaviour
         Debug.Log("Freeze the golfBall for a moment");
         if (_ballRb == null) return;
         Debug.Log("Freezing");
-        _ballRb.bodyType = RigidbodyType2D.Static;
+        _ballRb.simulated = false;
         StartCoroutine(BeAbleToMove(_ballRb));
 
     }
@@ -146,7 +146,7 @@ public class GolfPlayerController : MonoBehaviour
     IEnumerator BeAbleToMove(Rigidbody2D rb)
     {
         yield return new WaitForSeconds(1);
-        _ballRb.bodyType = RigidbodyType2D.Dynamic;
+        _ballRb.simulated = true;
 
     }
     #endregion
