@@ -14,7 +14,7 @@ public abstract class BaseStateMachine : MonoBehaviour
         CurrentState.EnterState();
     }
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         CurrentState?.UpdateState();
     }

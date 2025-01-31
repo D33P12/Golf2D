@@ -16,18 +16,19 @@ public class PlayerStart : BaseState
         //Initialize the mole object and mole UI
         _golfStateMachine.UIMoleThinkingText.SetActive(false);
         _golfStateMachine.MoleObject.gameObject.SetActive(false);
+        _golfStateMachine.PlayerController.SetPathObjectRb(false);
     }
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.isBallStopped())
-        {
-            _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
-        }
+        /*if (_golfStateMachine.PlayerController.isBallStopped())
+            _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);*/
+
+        _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
     }
 
     public override void ExitState()
     {
-
+        Debug.Log("Let's Go!");
     }
 }

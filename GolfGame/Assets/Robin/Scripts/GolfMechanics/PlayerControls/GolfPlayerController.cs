@@ -33,14 +33,17 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float friction = 2.0f;
 
     private Vector2 _shootDirection = Vector2.right;
-    private Rigidbody2D _ballRb;
+
+    [Header("Physics Setup")]
+    [NonSerialized] public Rigidbody2D ballRb;
+    [SerializeField] private Rigidbody2D pathRb;
     #endregion
 
     #region Initialization
     private void Start()
     {
         //Set the ball's rigid body 2D
-        _ballRb = gameObject.GetComponent<Rigidbody2D>();
+        ballRb = gameObject.GetComponent<Rigidbody2D>();
         //Hide the force indicator when start
         coreTrans.gameObject.SetActive(false);
     }
@@ -115,40 +118,48 @@ public class GolfPlayerController : MonoBehaviour
     #region Player Shoot
     public void ShootBall()
     {
-        if (_ballRb == null) return;
+        if (ballRb == null) return;
 
         Debug.Log("Shoot!");
         _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
-        _ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
+        ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
     }
+    #endregion
 
     public bool isBallStopped()
     {
-        if (_ballRb == null) return true;
+        if (ballRb == null) return true;
 
-        if (_ballRb.IsSleeping()) 
+        if (ballRb.IsSleeping()) 
             return true;
         else
             return false;
     }
-    #endregion
 
-    #region Player Waiting For Turn
+    /*#region Player Waiting For Turn
     public void TurnStaticThenDynamic()
     {
         Debug.Log("Freeze the golfBall for a moment");
         if (_ballRb == null) return;
         Debug.Log("Freezing");
         _ballRb.simulated = false;
-        StartCoroutine(BeAbleToMove(_ballRb));
+        StartCoroutine(BeAbleToMove());
 
     }
 
-    IEnumerator BeAbleToMove(Rigidbody2D rb)
+    IEnumerator BeAbleToMove()
     {
         yield return new WaitForSeconds(1);
         _ballRb.simulated = true;
 
+    }
+    #endregion*/
+
+    #region RB Setup
+    public void SetPathObjectRb(bool value)
+    {
+        pathRb.simulated = value;
+        pathRb.gameObject.SetActive(value);
     }
     #endregion
 }
