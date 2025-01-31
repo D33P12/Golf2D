@@ -32,7 +32,11 @@ public class Mole : MonoBehaviour
 
     [SerializeField] private bool moleIsDigging;
 
+    [SerializeField] private float finishRotation;
+
     [SerializeField] private CinemachineVirtualCamera cameraObject;
+
+    [SerializeField] private GameObject splitCheck;
 
     void Start()
     { 
@@ -47,9 +51,19 @@ public class Mole : MonoBehaviour
         PointBHeightDepth = P_BB;
     }
 
-    public void StartDigging()
+    public void StartDigging(bool isDiggingUp)
     {
         timeValue = 0f;
+        if (isDiggingUp)
+        {
+            finishRotation = -180f;
+            splitCheck.transform.localPosition = new Vector3(2, -1, 0);
+        }
+        else
+        {
+            finishRotation = 180f;
+            splitCheck.transform.localPosition = new Vector3(2, 1, 0);
+        }
         if (DigPointA != Vector3.zero && DigPointB != Vector3.zero && PointAHeightDepth != Vector3.zero && PointBHeightDepth != Vector3.zero)
         {
             cameraObject.Follow = this.gameObject.transform;
@@ -61,7 +75,7 @@ public class Mole : MonoBehaviour
     { 
         //move mole transform
         moleTransform.position = Bezier(P_1,P_2,P_3,P_4, timeValue);
-        moleTransform.rotation = Quaternion.Euler(0, 0, timeValue * 180f);
+        moleTransform.rotation = Quaternion.Euler(0, 0, timeValue * finishRotation);
 
     }
 
