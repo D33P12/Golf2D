@@ -1855,6 +1855,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: landRb
+      value: 
+      objectReference: {fileID: 1785944091663878591}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: pathRb
+      value: 
+      objectReference: {fileID: 1290222931}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: friction
       value: 2
       objectReference: {fileID: 0}
@@ -2440,6 +2448,8 @@ MonoBehaviour:
   pathfindPointBA: {x: 0, y: 0, z: 0}
   PathfindPointBB: {x: 0, y: 0, z: 0}
   output: {fileID: 811039292}
+  minRange: 4
+  maxRange: 15
 --- !u!212 &1290222928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32323,6 +32333,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+--- !u!50 &1785944091663878591 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4945795463835869201, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+  m_PrefabInstance: {fileID: 1785944091663878590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6905540563399779177
 PrefabInstance:
   m_ObjectHideFlags: 0
