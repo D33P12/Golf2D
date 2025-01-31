@@ -140,9 +140,9 @@ public class GolfPlayerController : MonoBehaviour
     public void TurnStaticThenDynamic()
     {
         Debug.Log("Freeze the golfBall for a moment");
-        if (_ballRb == null) return;
+        if (ballRb == null) return;
         Debug.Log("Freezing");
-        _ballRb.simulated = false;
+        ballRb.simulated = false;
         StartCoroutine(BeAbleToMove());
 
     }
@@ -150,16 +150,8 @@ public class GolfPlayerController : MonoBehaviour
     IEnumerator BeAbleToMove()
     {
         yield return new WaitForSeconds(1);
-        _ballRb.simulated = true;
+        ballRb.simulated = true;
 
     }
     #endregion*/
-
-    #region RB Setup
-    public void SetPathObjectRb(bool value)
-    {
-        pathRb.simulated = value;
-        pathRb.gameObject.SetActive(value);
-    }
-    #endregion
 }

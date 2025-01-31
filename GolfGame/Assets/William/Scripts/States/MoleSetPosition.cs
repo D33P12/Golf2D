@@ -15,7 +15,6 @@ public class MoleSetPosition : BaseState
         Debug.Log("MoleSetPosition");
         _golfStateMachine.PathfinderObject.Pathfind();
         _golfStateMachine.UIMoleThinkingText.SetActive(true);
-        _golfStateMachine.PlayerController.SetPathObjectRb(true);
     }
 
     public override void UpdateState()
@@ -29,6 +28,5 @@ public class MoleSetPosition : BaseState
     public override void ExitState()
     {
         _golfStateMachine.UIMoleThinkingText.SetActive(false);
-        _golfStateMachine.PlayerController.SetPathObjectRb(false);
     }
 }
