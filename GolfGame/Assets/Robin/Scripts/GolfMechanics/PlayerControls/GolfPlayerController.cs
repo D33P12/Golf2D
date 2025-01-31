@@ -157,9 +157,9 @@ public class GolfPlayerController : MonoBehaviour
     #endregion*/
 
     #region rigidbody Handlers
-    public void SetLandRb(bool value)
+    public void SetLandRb(float value)
     {
-        landRb.simulated = value;
+        landRb.gravityScale = value;
     }
     #endregion
 }

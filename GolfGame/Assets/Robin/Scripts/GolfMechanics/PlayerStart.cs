@@ -16,7 +16,7 @@ public class PlayerStart : BaseState
         //Initialize the mole object and mole UI
         _golfStateMachine.UIMoleThinkingText.SetActive(false);
         _golfStateMachine.MoleObject.gameObject.SetActive(false);
-        _golfStateMachine.PlayerController.SetLandRb(false);
+        _golfStateMachine.PlayerController.SetLandRb(0);
     }
 
     public override void UpdateState()

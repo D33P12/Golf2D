@@ -13,7 +13,7 @@ public class LandFall : BaseState
     public override void EnterState()
     {
         //_golfStateMachine.PlayerController.TurnStaticThenDynamic();
-        _golfStateMachine.PlayerController.SetLandRb(true);
+        _golfStateMachine.PlayerController.SetLandRb(1);
         _golfStateMachine.FieldObject.DropGridFromMole();
     }
 
@@ -25,6 +25,6 @@ public class LandFall : BaseState
 
     public override void ExitState()
     {
-        _golfStateMachine.PlayerController.SetLandRb(false);
+        _golfStateMachine.PlayerController.SetLandRb(0);
     }
 }
