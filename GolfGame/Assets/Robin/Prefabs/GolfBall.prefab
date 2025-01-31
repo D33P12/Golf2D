@@ -57,7 +57,7 @@ MonoBehaviour:
   chargeSpeed: 50
   initialForce: 0
   maxForce: 100
-  friction: 2
+  friction: 4
   pathRb: {fileID: 0}
   landRb: {fileID: 0}
 --- !u!114 &7170291274064269591

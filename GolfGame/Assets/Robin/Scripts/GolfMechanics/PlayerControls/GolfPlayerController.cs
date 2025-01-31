@@ -159,13 +159,13 @@ public class GolfPlayerController : MonoBehaviour
     #endregion
 
     #region rigidbody Handlers
-    public void IsLandStopped(bool value)
+    /*public void IsLandStopped(bool value)
     {
         if (value == true)
             landRb.Sleep();
         else
             landRb.WakeUp();
-    }
+    }*/
 
     /*public void EnableBallPhysMaterial()
     {

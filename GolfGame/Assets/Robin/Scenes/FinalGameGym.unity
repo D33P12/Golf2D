@@ -20599,7 +20599,7 @@ PrefabInstance:
       objectReference: {fileID: 1290222931}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: friction
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: ballPhysMaterial
