@@ -17077,7 +17077,7 @@ MonoBehaviour:
   golfHoleRef: {fileID: 1589660420}
   maxDigHeight: -1
   minDigX: -15
-  maxDigX: 57
+  maxDigX: 58
   maxDigXB: 38
   pathfinderTransform: {fileID: 1290222929}
   randomTempX: 0
