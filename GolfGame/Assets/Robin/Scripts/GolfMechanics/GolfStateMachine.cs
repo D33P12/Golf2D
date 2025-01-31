@@ -3,8 +3,6 @@ using System.Collections;
 
 public class GolfStateMachine : BaseStateMachine
 {
-
-    //Note by Will: next time doing this, separate the state machine out of the golfball and move it to a different gameobject. 
     #region Keep track of all golf states
     //Create the 3 golf player states
     private PlayerAiming _playerAimingState;

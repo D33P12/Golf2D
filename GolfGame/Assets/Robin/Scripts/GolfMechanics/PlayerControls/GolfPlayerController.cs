@@ -35,7 +35,7 @@ public class GolfPlayerController : MonoBehaviour
     private Vector2 _shootDirection = Vector2.right;
 
     [Header("Physics Setup")]
-    [SerializeField] private PhysicsMaterial2D ballRbMaterial;
+    //[SerializeField] private PhysicsMaterial2D ballRbMaterial;
 
     [NonSerialized] public Rigidbody2D ballRb;
     [SerializeField] private Rigidbody2D pathRb;
@@ -167,7 +167,7 @@ public class GolfPlayerController : MonoBehaviour
             landRb.WakeUp();
     }
 
-    public void EnableBallPhysMaterial()
+    /*public void EnableBallPhysMaterial()
     {
         ballRb.sharedMaterial = ballRbMaterial;
     }
@@ -175,6 +175,6 @@ public class GolfPlayerController : MonoBehaviour
     public void DisableBallPhysMaterial()
     {
         ballRb.sharedMaterial = null;
-    }
+    }*/
     #endregion
 }
