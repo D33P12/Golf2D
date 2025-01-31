@@ -19,7 +19,7 @@ public class PlayerShoot : BaseState
     {
         if (_golfStateMachine.PlayerController.isBallStopped())
         {
-            _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
+            _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
         }
     }
 

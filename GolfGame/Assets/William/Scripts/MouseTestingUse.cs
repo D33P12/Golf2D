@@ -1,11 +1,14 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.Tilemaps;
 
 public class MouseTestingUse : MonoBehaviour
 {
     Vector3 _mousePosition;
     [SerializeField] private LayerMask inPlatform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    [SerializeField] private Tilemap anyTilemap;
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +18,8 @@ public class MouseTestingUse : MonoBehaviour
             Collider2D overCollider2D = Physics2D.OverlapCircle(_mousePosition, 0.01f, inPlatform);
             if (overCollider2D != null)
             {
-                overCollider2D.transform.GetComponent<GroundTiles>().DeleteTile(_mousePosition);
+                Debug.Log(anyTilemap.WorldToCell(_mousePosition));
+               // overCollider2D.transform.GetComponent<GroundTiles>().DeleteTile(_mousePosition);
             }
         }
     }

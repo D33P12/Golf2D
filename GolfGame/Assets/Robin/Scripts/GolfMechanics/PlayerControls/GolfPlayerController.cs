@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GolfPlayerController : MonoBehaviour
 {
@@ -128,6 +130,25 @@ public class GolfPlayerController : MonoBehaviour
             return true;
         else
             return false;
+    }
+    #endregion
+
+    #region Player Waiting For Turn
+    public void TurnStaticThenDynamic()
+    {
+        Debug.Log("Freeze the golfBall for a moment");
+        if (_ballRb == null) return;
+        Debug.Log("Freezing");
+        _ballRb.simulated = false;
+        StartCoroutine(BeAbleToMove(_ballRb));
+
+    }
+
+    IEnumerator BeAbleToMove(Rigidbody2D rb)
+    {
+        yield return new WaitForSeconds(1);
+        _ballRb.simulated = true;
+
     }
     #endregion
 }

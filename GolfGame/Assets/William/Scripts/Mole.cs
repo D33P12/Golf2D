@@ -97,4 +97,9 @@ public class Mole : MonoBehaviour
         
     }
 
+    public bool FinishedDigging()
+    { 
+        return !moleIsDigging;
+    }
+
 }
