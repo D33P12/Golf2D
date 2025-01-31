@@ -127,7 +127,7 @@ public class GolfPlayerController : MonoBehaviour
     }
     #endregion
 
-    public bool isBallStopped()
+    /*public bool isBallStopped()
     {
         if (ballRb == null) return true;
 
@@ -135,7 +135,7 @@ public class GolfPlayerController : MonoBehaviour
             return true;
         else
             return false;
-    }
+    }*/
 
     /*#region Player Waiting For Turn
     public void TurnStaticThenDynamic()

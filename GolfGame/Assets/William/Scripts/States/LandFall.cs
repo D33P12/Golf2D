@@ -19,7 +19,7 @@ public class LandFall : BaseState
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.isBallStopped() && _golfStateMachine.PlayerController.landRb.IsSleeping())
+        if (_golfStateMachine.PlayerController.ballRb.IsSleeping())
             _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
     }
 

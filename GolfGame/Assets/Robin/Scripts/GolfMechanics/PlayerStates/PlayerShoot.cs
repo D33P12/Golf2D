@@ -17,7 +17,7 @@ public class PlayerShoot : BaseState
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.isBallStopped())
+        if (_golfStateMachine.PlayerController.ballRb.IsSleeping())
         {
             _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
         }
