@@ -3328,11 +3328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451251268004397972, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_TileAnchor.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6451251268004397972, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_TileAnchor.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6451251268004397972, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_Tiles.Array.size
