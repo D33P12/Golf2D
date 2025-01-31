@@ -15422,8 +15422,8 @@ Tilemap:
   - first: {x: 5, y: 22, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19825,11 +19825,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ecb50b7fd7d665e4bbfa3650d679e82a, type: 2}
   - m_RefCount: 29
     m_Data: {fileID: 11400000, guid: 1ce357182b7f2844b957740e915d37b1, type: 2}
-  - m_RefCount: 518
+  - m_RefCount: 519
     m_Data: {fileID: 11400000, guid: 551f6bd3f92c82e41830fc296446e844, type: 2}
   - m_RefCount: 62
     m_Data: {fileID: 11400000, guid: 49d09456af7fe554fbe85f0673849111, type: 2}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 81c27194b62b94849bb06566dcf6d7d1, type: 2}
   - m_RefCount: 352
     m_Data: {fileID: 11400000, guid: 05d896dea9342f942a65e4dc87e39eeb, type: 2}
@@ -19892,11 +19892,11 @@ Tilemap:
     m_Data: {fileID: -1543795354, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
   - m_RefCount: 29
     m_Data: {fileID: -1144403576, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
-  - m_RefCount: 518
+  - m_RefCount: 519
     m_Data: {fileID: 236069182, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
   - m_RefCount: 62
     m_Data: {fileID: -2083418522, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 1352318214, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
   - m_RefCount: 352
     m_Data: {fileID: 1861723907, guid: 8dc6292788f3aa94885d4ac493fddf6b, type: 3}
@@ -20515,7 +20515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3283378903515908340, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -10.75
       objectReference: {fileID: 0}
     - target: {fileID: 3283378903515908340, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21976,7 +21976,7 @@ Transform:
   m_GameObject: {fileID: 1743677247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: -10.69, z: -10}
+  m_LocalPosition: {x: -10.75, y: -10.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22274,7 +22274,7 @@ Transform:
   m_GameObject: {fileID: 1885149302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: -10.69, z: -10}
+  m_LocalPosition: {x: -10.75, y: -10.69, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
