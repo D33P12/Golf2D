@@ -13,6 +13,7 @@ public class PlayerStart : BaseState
     public override void EnterState()
     {
         Debug.Log("Game Start!");
+        _golfStateMachine.PlayerController.DisableBallPhysMaterial();
         //Initialize the mole object and mole UI
         _golfStateMachine.UIMoleThinkingText.SetActive(false);
         _golfStateMachine.MoleObject.gameObject.SetActive(false);
