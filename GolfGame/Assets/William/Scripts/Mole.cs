@@ -104,7 +104,7 @@ public class Mole : MonoBehaviour
             if (timeValue > 1)
             { 
                 moleIsDigging = false;
-                cameraObject.Follow = golfBallRef.transform;
+                //cameraObject.Follow = golfBallRef.transform;
                 timeValue = 0;
             }
         }
