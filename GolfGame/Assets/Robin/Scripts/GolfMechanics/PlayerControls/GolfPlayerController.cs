@@ -139,7 +139,7 @@ public class GolfPlayerController : MonoBehaviour
             return false;
     }*/
 
-    /*#region Player Waiting For Turn
+    #region Player Waiting For Turn
     public void TurnStaticThenDynamic()
     {
         Debug.Log("Freeze the golfBall for a moment");
@@ -156,7 +156,7 @@ public class GolfPlayerController : MonoBehaviour
         ballRb.simulated = true;
 
     }
-    #endregion*/
+    #endregion
 
     #region rigidbody Handlers
     public void IsLandStopped(bool value)

@@ -12,15 +12,14 @@ public class LandFall : BaseState
 
     public override void EnterState()
     {
-        //_golfStateMachine.PlayerController.TurnStaticThenDynamic();
+        _golfStateMachine.PlayerController.TurnStaticThenDynamic();
         _golfStateMachine.PlayerController.IsLandStopped(false);
         _golfStateMachine.FieldObject.DropGridFromMole();
+        _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
     }
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.ballRb.IsSleeping())
-            _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
     }
 
     public override void ExitState()
