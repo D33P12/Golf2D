@@ -24,19 +24,31 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float chargeSpeed = 50f;
 
     [SerializeField] private float initialForce = 0f;
-    [SerializeField] private float maxForce = 100f;
+    public float maxForce = 100f;
 
     [NonSerialized] public bool isCharging;
-    private float _currentForce;
+    [NonSerialized] public float currentForce;
 
     [Header("Player Shoot")]
     [SerializeField] private float friction = 2.0f;
 
     private Vector2 _shootDirection = Vector2.right;
-    private Rigidbody2D _ballRb;
+
+    [Header("Physics Setup")]
+    [NonSerialized] public Rigidbody2D ballRb;
+    [SerializeField] private Rigidbody2D pathRb;
+    public Rigidbody2D landRb;
     #endregion
 
     #region Initialization
+    private void Start()
+    {
+        //Set the ball's rigid body 2D
+        ballRb = gameObject.GetComponent<Rigidbody2D>();
+        //Hide the force indicator when start
+        coreTrans.gameObject.SetActive(false);
+    }
+
     private void Awake()
     {
         //Get input manager instance
@@ -44,16 +56,13 @@ public class GolfPlayerController : MonoBehaviour
 
         inputManager.GetShoot().performed += x => IsCharging();
         inputManager.GetShoot().canceled += x => IsNotCharging();
-
-        //Set the ball's rigid body 2D
-        _ballRb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     public void Initialization()
     {
         //Initialize current values
         _currentAngle = startingAngle;
-        _currentForce = initialForce;
+        currentForce = initialForce;
         _shootDirection = Vector2.right;
         //Show the shooting direction and start aiming
         coreTrans.gameObject.SetActive(true);
@@ -86,12 +95,10 @@ public class GolfPlayerController : MonoBehaviour
 
     public void HandlingCharging()
     {
-        _currentForce = _currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
+        currentForce = currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
 
-        if (_currentForce > maxForce)    // if current force is higher than the max force the player can reach
-            _currentForce = maxForce;    // keep it at the maximum force
-
-        Debug.Log(_currentForce);
+        if (currentForce > maxForce)    // if current force is higher than the max force the player can reach
+            currentForce = maxForce;    // keep it at the maximum force
     }
 
     public void FinishCharging()
@@ -112,42 +119,50 @@ public class GolfPlayerController : MonoBehaviour
     #region Player Shoot
     public void ShootBall()
     {
-        if (_ballRb == null) return;
-
-        if (_currentForce == 0) return;
+        if (ballRb == null) return;
 
         Debug.Log("Shoot!");
         _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
-        _ballRb.AddForce(_shootDirection * _currentForce / friction, ForceMode2D.Impulse);
+        ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
     }
+    #endregion
 
     public bool isBallStopped()
     {
-        if (_ballRb == null) return true;
+        if (ballRb == null) return true;
 
-        if (_ballRb.IsSleeping()) 
+        if (ballRb.IsSleeping()) 
             return true;
         else
             return false;
     }
-    #endregion
 
-    #region Player Waiting For Turn
+    /*#region Player Waiting For Turn
     public void TurnStaticThenDynamic()
     {
         Debug.Log("Freeze the golfBall for a moment");
-        if (_ballRb == null) return;
+        if (ballRb == null) return;
         Debug.Log("Freezing");
-        _ballRb.simulated = false;
-        StartCoroutine(BeAbleToMove(_ballRb));
+        ballRb.simulated = false;
+        StartCoroutine(BeAbleToMove());
 
     }
 
-    IEnumerator BeAbleToMove(Rigidbody2D rb)
+    IEnumerator BeAbleToMove()
     {
         yield return new WaitForSeconds(1);
-        _ballRb.simulated = true;
+        ballRb.simulated = true;
 
+    }
+    #endregion*/
+
+    #region rigidbody Handlers
+    public void IsLandStopped(bool value)
+    {
+        if (value == true)
+            landRb.Sleep();
+        else
+            landRb.WakeUp();
     }
     #endregion
 }

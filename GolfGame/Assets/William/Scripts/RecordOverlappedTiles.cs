@@ -17,13 +17,11 @@ public class RecordOverlappedTiles : MonoBehaviour
     private Vector3Int recordTempPrevious;
 
     [SerializeField] private bool firstNull;
-    [SerializeField] private bool recordNext;
     [SerializeField] private int previousTilemap;
 
     void Start()
     {
         firstNull = true;
-        recordNext = false;
     }
     // Update is called once per frame
     void Update()
@@ -68,6 +66,5 @@ public class RecordOverlappedTiles : MonoBehaviour
         recordTemp = new Vector3Int(0, 0, 0);
         previousTilemap = 0;
         firstNull = true;
-        recordNext = false;
     }
 }

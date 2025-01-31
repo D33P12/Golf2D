@@ -25,6 +25,6 @@ public class PlayerShoot : BaseState
 
     public override void ExitState()
     {
-        
+        Debug.Log("Finish shooting");
     }
 }
