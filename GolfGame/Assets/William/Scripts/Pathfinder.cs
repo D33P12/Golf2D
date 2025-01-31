@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Pathfinder : MonoBehaviour
 {
+    [Header("Major Variables")]
     [SerializeField] private GameObject golfBallRef;
     [SerializeField] private GameObject golfHoleRef;
     [SerializeField] private float maxDigHeight;
@@ -13,7 +14,7 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] private float maxDigXB;
     [SerializeField] private Transform pathfinderTransform;
 
-    //temp values
+    [Header("Temp Values")]
     [SerializeField] private float randomTempX;
     [SerializeField] private float randomTempY;
     [SerializeField] private Vector3 randomVector;
@@ -24,6 +25,10 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] private Vector3 PathfindPointBB;
 
     [SerializeField] private Mole output;
+
+    [Header("Random Temp X values")]
+    [SerializeField] private float minRange = 4;
+    [SerializeField] private float maxRange = 15;
 
     private bool finishedRunning;
 
@@ -99,7 +104,7 @@ public class Pathfinder : MonoBehaviour
             pathfindPointBA = new Vector3(tempVector3.x, tempVector3.y, 0);
         }
 
-        randomTempX = Random.Range(4, maxDigHeight);
+        randomTempX = randomTempX = Random.Range(minRange, maxRange);
         pathfindPointAB = new Vector3(pathfindPointAA.x +2f, pathfindPointAA.y - randomTempX, 0);
         PathfindPointBB = new Vector3(pathfindPointBA.x +2f, pathfindPointBA.y - randomTempX, 0);
         output.SetPoints(pathfindPointAA, pathfindPointAB, pathfindPointBA, PathfindPointBB);
