@@ -37,7 +37,7 @@ public class GolfPlayerController : MonoBehaviour
     [Header("Physics Setup")]
     [NonSerialized] public Rigidbody2D ballRb;
     [SerializeField] private Rigidbody2D pathRb;
-    [SerializeField] private Rigidbody2D landRb;
+    public Rigidbody2D landRb;
     #endregion
 
     #region Initialization
@@ -157,9 +157,12 @@ public class GolfPlayerController : MonoBehaviour
     #endregion*/
 
     #region rigidbody Handlers
-    public void SetLandRb(float value)
+    public void IsLandStopped(bool value)
     {
-        landRb.gravityScale = value;
+        if (value == true)
+            landRb.Sleep();
+        else
+            landRb.WakeUp();
     }
     #endregion
 }

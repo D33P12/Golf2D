@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7170291274064269591}
   - component: {fileID: 5890658722774053598}
   - component: {fileID: -1402719492417007847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GolfBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   maxForce: 100
   friction: 2
   pathRb: {fileID: 0}
+  landRb: {fileID: 0}
 --- !u!114 &7170291274064269591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7111190339652182540}
   - component: {fileID: 5545278236219282869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForceBarBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +211,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -232,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1719049837770734942}
   - component: {fileID: 4882174529068531875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AimingCtrP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2805115392459294103}
   - component: {fileID: 3733406268074350163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1014898413882459540}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForceBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6838175994800735312}
   - component: {fileID: 4811835336551658270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +459,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
