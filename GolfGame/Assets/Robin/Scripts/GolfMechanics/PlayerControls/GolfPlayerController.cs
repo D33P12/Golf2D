@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.InputSystem.XR;
+using Cinemachine;
 
 public class GolfPlayerController : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class GolfPlayerController : MonoBehaviour
     [NonSerialized] public InputManager inputManager;  //We use input manager to control the golf ball
     [SerializeField] private Transform coreTrans;
 
+    [NonSerialized] public Rigidbody2D ballRb;
+    [SerializeField] private Rigidbody2D pathRb;
+    public Rigidbody2D landRb;
+    //[SerializeField] private PhysicsMaterial2D ballRbMaterial;
+
+    private Vector2 input;
     [Header("Player Aiming")]
     [SerializeField] private float aimSpeed = 45f;
     [SerializeField] private float startingAngle = 0f;
@@ -18,7 +26,7 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float maxAim = 180f;
 
     private float _currentAngle;
-    private bool _canChangeDirection = true;
+    //private bool _canChangeDirection = true;
 
     [Header("Player Charging")]
     [SerializeField] private float chargeSpeed = 50f;
@@ -31,15 +39,14 @@ public class GolfPlayerController : MonoBehaviour
 
     [Header("Player Shoot")]
     [SerializeField] private float friction = 2.0f;
-
     private Vector2 _shootDirection = Vector2.right;
 
-    [Header("Physics Setup")]
-    //[SerializeField] private PhysicsMaterial2D ballRbMaterial;
-
-    [NonSerialized] public Rigidbody2D ballRb;
-    [SerializeField] private Rigidbody2D pathRb;
-    public Rigidbody2D landRb;
+    [Header("Player Look")]
+    [SerializeField] private CinemachineVirtualCamera cameraObject;
+    [SerializeField] private Transform lookTrans;
+    [SerializeField] private float lookSpeed = 6.0f;
+    private Vector2 camVelocity;
+    [NonSerialized] public bool isLooking;
     #endregion
 
     #region Initialization
@@ -56,40 +63,84 @@ public class GolfPlayerController : MonoBehaviour
         //Get input manager instance
         inputManager = InputManager.Instance;
 
+        //Player shoot control
         inputManager.GetShoot().performed += x => IsCharging();
         inputManager.GetShoot().canceled += x => IsNotCharging();
+
+        //Player look control
+        inputManager.CanPlayerLook().performed += x => IsLooking();
+        inputManager.CanPlayerLook().canceled += x => IsNotLooking();
     }
 
-    public void Initialization()
+    public void AimingInitialization()
     {
+        cameraObject.Follow = gameObject.transform; //initialize camera
         //Initialize current values
         _currentAngle = startingAngle;
         currentForce = initialForce;
         _shootDirection = Vector2.right;
         //Show the shooting direction and start aiming
         coreTrans.gameObject.SetActive(true);
-        CanChangeDirection(true);
+        //CanChangeDirection(true);
+    }
+
+    public void LookingInitialization()
+    {
+        lookTrans.position = gameObject.transform.position; //initialize look position
+        cameraObject.Follow = lookTrans; //initialize camera
     }
     #endregion
-
-    #region Player Aiming
-    private void FixedUpdate()
+    
+    /*private void FixedUpdate()
     {
         if (_canChangeDirection)
-            HandlingAiming();
-    }
+        {
+            if (isLooking)
+                HandlingLooking();
+            else
+                HandlingAiming();
+        }         
+    }*/
 
-    private void HandlingAiming()
-    {        
+    #region Player Aiming
+    public void HandlingAiming()
+    {
         //Handling the function of player aiming
-        Vector2 shootDirectionInput = inputManager.GetShootDirection();
-        _currentAngle = _currentAngle - shootDirectionInput.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
+        input = inputManager.GetShootDirection();
+        _currentAngle = _currentAngle - input.x * aimSpeed * Time.deltaTime; //Always updating the currentAngle
         coreTrans.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(_currentAngle, minAim, maxAim));
     }
 
-    public void CanChangeDirection(bool value)
+    /*public void CanChangeDirection(bool value)
     {
         _canChangeDirection = value;
+    }*/
+    #endregion
+
+    #region Player Look
+    public void HandlingLooking()
+    {
+        input = inputManager.PlayerLookAround();
+        Vector2 cameraMove = new Vector2(input.x, input.y);
+        CharacterController lookController = lookTrans.GetComponent<CharacterController>();
+
+        lookController.Move(cameraMove * Time.deltaTime * lookSpeed);
+
+        if (cameraMove != Vector2.zero)
+        {
+            lookTrans.forward = cameraMove;
+        }
+
+        lookController.Move(camVelocity * Time.deltaTime);
+    }
+
+    private void IsLooking()
+    {
+        isLooking = true;
+    }
+    private void IsNotLooking()
+    {
+        isLooking = false;
     }
     #endregion
 
@@ -129,16 +180,6 @@ public class GolfPlayerController : MonoBehaviour
     }
     #endregion
 
-    /*public bool isBallStopped()
-    {
-        if (ballRb == null) return true;
-
-        if (ballRb.IsSleeping()) 
-            return true;
-        else
-            return false;
-    }*/
-
     #region Player Waiting For Turn
     public void TurnStaticThenDynamic()
     {
@@ -158,16 +199,27 @@ public class GolfPlayerController : MonoBehaviour
     }
     #endregion
 
-    #region rigidbody Handlers
-    /*public void IsLandStopped(bool value)
+    #region UnUsed
+    /*public bool isBallStopped()
+    {
+        if (ballRb == null) return true;
+
+        if (ballRb.IsSleeping()) 
+            return true;
+        else
+            return false;
+    }*/
+
+    /*#region Rigid body Handlers
+    public void IsLandStopped(bool value)
     {
         if (value == true)
             landRb.Sleep();
         else
             landRb.WakeUp();
-    }*/
+    }
 
-    /*public void EnableBallPhysMaterial()
+    public void EnableBallPhysMaterial()
     {
         ballRb.sharedMaterial = ballRbMaterial;
     }
@@ -175,6 +227,7 @@ public class GolfPlayerController : MonoBehaviour
     public void DisableBallPhysMaterial()
     {
         ballRb.sharedMaterial = null;
-    }*/
+    }
+    #endregion*/
     #endregion
 }

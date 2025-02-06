@@ -44,6 +44,24 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheckLook"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c604bce-5034-40d6-a339-0fb65a9c179a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookAround"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8c84cd73-254b-4545-87e5-c9b4c659a4fe"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -90,6 +108,72 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d49f2079-986b-485d-a9c2-8d93db4224ce"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheckLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""ArrowKeys"",
+                    ""id"": ""8266bfcc-2dc8-400a-b55d-5a7d9316823d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""39afa0e9-a44c-4a5b-9ccb-2b1c1321379b"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3a1b42fe-e864-411a-a5d4-381442851e99"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""53dea81b-d1a0-4bc4-a7ad-9e2940451bd9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""eb8c8f38-d7ae-424d-9541-98ab8d7e1a77"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -100,6 +184,8 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
         m_GolfBall = asset.FindActionMap("GolfBall", throwIfNotFound: true);
         m_GolfBall_ShootDirectionChange = m_GolfBall.FindAction("ShootDirectionChange", throwIfNotFound: true);
         m_GolfBall_Shoot = m_GolfBall.FindAction("Shoot", throwIfNotFound: true);
+        m_GolfBall_CheckLook = m_GolfBall.FindAction("CheckLook", throwIfNotFound: true);
+        m_GolfBall_LookAround = m_GolfBall.FindAction("LookAround", throwIfNotFound: true);
     }
 
     ~@GolfInput()
@@ -168,12 +254,16 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
     private List<IGolfBallActions> m_GolfBallActionsCallbackInterfaces = new List<IGolfBallActions>();
     private readonly InputAction m_GolfBall_ShootDirectionChange;
     private readonly InputAction m_GolfBall_Shoot;
+    private readonly InputAction m_GolfBall_CheckLook;
+    private readonly InputAction m_GolfBall_LookAround;
     public struct GolfBallActions
     {
         private @GolfInput m_Wrapper;
         public GolfBallActions(@GolfInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @ShootDirectionChange => m_Wrapper.m_GolfBall_ShootDirectionChange;
         public InputAction @Shoot => m_Wrapper.m_GolfBall_Shoot;
+        public InputAction @CheckLook => m_Wrapper.m_GolfBall_CheckLook;
+        public InputAction @LookAround => m_Wrapper.m_GolfBall_LookAround;
         public InputActionMap Get() { return m_Wrapper.m_GolfBall; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,6 +279,12 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @CheckLook.started += instance.OnCheckLook;
+            @CheckLook.performed += instance.OnCheckLook;
+            @CheckLook.canceled += instance.OnCheckLook;
+            @LookAround.started += instance.OnLookAround;
+            @LookAround.performed += instance.OnLookAround;
+            @LookAround.canceled += instance.OnLookAround;
         }
 
         private void UnregisterCallbacks(IGolfBallActions instance)
@@ -199,6 +295,12 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @CheckLook.started -= instance.OnCheckLook;
+            @CheckLook.performed -= instance.OnCheckLook;
+            @CheckLook.canceled -= instance.OnCheckLook;
+            @LookAround.started -= instance.OnLookAround;
+            @LookAround.performed -= instance.OnLookAround;
+            @LookAround.canceled -= instance.OnLookAround;
         }
 
         public void RemoveCallbacks(IGolfBallActions instance)
@@ -220,5 +322,7 @@ public partial class @GolfInput: IInputActionCollection2, IDisposable
     {
         void OnShootDirectionChange(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnCheckLook(InputAction.CallbackContext context);
+        void OnLookAround(InputAction.CallbackContext context);
     }
 }

@@ -14,16 +14,19 @@ public class PlayerAiming : BaseState
         //Enter the aiming state, we start aiming
         Debug.Log("Start aiming");
 
-        _golfStateMachine.PlayerController.Initialization();
+        _golfStateMachine.PlayerController.AimingInitialization();
     }
 
     public override void UpdateState()
     {
         //During the aiming state, we press left/right for aiming
-        if (_golfStateMachine.PlayerController.isCharging)
-        {
-            _golfStateMachine.SetState(_golfStateMachine.PlayerChargingState);
-        }
+        _golfStateMachine.PlayerController.HandlingAiming();
+
+        if (_golfStateMachine.PlayerController.isLooking)   //if press x
+            _golfStateMachine.SetState(_golfStateMachine.PlayerLookingState);   //enter looking state
+
+        if (_golfStateMachine.PlayerController.isCharging)  //if press z
+            _golfStateMachine.SetState(_golfStateMachine.PlayerChargingState);  //enter charging state
     }
 
     public override void ExitState()

@@ -20602,6 +20602,18 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: lookSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: lookTrans
+      value: 
+      objectReference: {fileID: 561671037}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1743677248}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: ballPhysMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 0561e817c88a8aa47a69f36b0c09bda8, type: 2}
@@ -20723,6 +20735,63 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5890658722774053598, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
   m_PrefabInstance: {fileID: 452470392}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &561671036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561671037}
+  - component: {fileID: 561671038}
+  m_Layer: 0
+  m_Name: LookTrans
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561671037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561671036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.69, y: -10.76, z: -0.15630277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &561671038
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561671036}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &569480510
 GameObject:
   m_ObjectHideFlags: 0
@@ -56765,6 +56834,7 @@ SceneRoots:
   - {fileID: 1885149306}
   - {fileID: 1743677249}
   - {fileID: 452470392}
+  - {fileID: 561671037}
   - {fileID: 1098090857}
   - {fileID: 6905540563399779177}
   - {fileID: 1290222929}
