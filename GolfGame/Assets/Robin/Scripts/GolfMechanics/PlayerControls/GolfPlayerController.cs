@@ -45,7 +45,7 @@ public class GolfPlayerController : MonoBehaviour
 
     [Header("Player Look")]
     [SerializeField] private CinemachineVirtualCamera cameraObject;
-    [SerializeField] private Transform lookTrans;
+    //[SerializeField] private Transform lookTrans;
     [SerializeField] private float lookSpeed = 6.0f;
     private Vector2 camVelocity;
     [NonSerialized] public bool isLooking;
@@ -89,8 +89,10 @@ public class GolfPlayerController : MonoBehaviour
 
     public void LookingInitialization()
     {
-        lookTrans.position = gameObject.transform.position; //initialize look position
-        cameraObject.Follow = lookTrans; //initialize camera
+        //initialize look position (stupid virtual camera's z position value is not 0, otherwise the player will see nothing)
+        cameraObject.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, cameraObject.transform.position.z);
+        //initialize camera
+        cameraObject.Follow = null;
     }
     #endregion
     
@@ -125,15 +127,9 @@ public class GolfPlayerController : MonoBehaviour
     {
         input = inputManager.PlayerLookAround();
         Vector2 cameraMove = new Vector2(input.x, input.y);
-        CharacterController lookController = lookTrans.GetComponent<CharacterController>();
+        CharacterController lookController = cameraObject.GetComponent<CharacterController>();
 
         lookController.Move(cameraMove * Time.deltaTime * lookSpeed);
-
-        if (cameraMove != Vector2.zero)
-        {
-            lookTrans.forward = cameraMove;
-        }
-
         lookController.Move(camVelocity * Time.deltaTime);
     }
 
