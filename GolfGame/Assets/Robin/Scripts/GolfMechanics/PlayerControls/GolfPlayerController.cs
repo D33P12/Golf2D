@@ -30,12 +30,14 @@ public class GolfPlayerController : MonoBehaviour
 
     [Header("Player Charging")]
     [SerializeField] private float chargeSpeed = 50f;
-
     [SerializeField] private float initialForce = 0f;
     public float maxForce = 100f;
+    [SerializeField] private float foulForce = 50f;
 
     [NonSerialized] public bool isCharging;
+    private float calForce;
     [NonSerialized] public float currentForce;
+    [NonSerialized] public bool isFouledCharging = false;
 
     [Header("Player Shoot")]
     [SerializeField] private float friction = 2.0f;
@@ -77,6 +79,7 @@ public class GolfPlayerController : MonoBehaviour
         cameraObject.Follow = gameObject.transform; //initialize camera
         //Initialize current values
         _currentAngle = startingAngle;
+        calForce = initialForce;
         currentForce = initialForce;
         _shootDirection = Vector2.right;
         //Show the shooting direction and start aiming
@@ -148,10 +151,22 @@ public class GolfPlayerController : MonoBehaviour
 
     public void HandlingCharging()
     {
-        currentForce = currentForce + chargeSpeed * Time.deltaTime; //charging by using delta time
+        calForce = calForce + chargeSpeed * Time.deltaTime; //calculate charging force
 
-        if (currentForce > maxForce)    // if current force is higher than the max force the player can reach
+        if (calForce > maxForce)    // if current force is higher than the max force the player can reach
+        {
+            Debug.Log(calForce);
             currentForce = maxForce;    // keep it at the maximum force
+            if (calForce >= maxForce + foulForce)
+                isFouledCharging = true;
+            else
+                isFouledCharging = false;
+        }
+        else
+        {
+            currentForce = calForce;    //Set current force
+            isFouledCharging = false;   //Golf player's charging is fine, not foul
+        }
     }
 
     public void FinishCharging()

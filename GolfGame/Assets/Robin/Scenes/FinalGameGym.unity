@@ -20602,6 +20602,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: foulForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723482360999029920, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
       propertyPath: lookSpeed
       value: 12
       objectReference: {fileID: 0}

@@ -22,8 +22,12 @@ public class PlayerCharging : BaseState
         _golfStateMachine.PlayerController.HandlingCharging();
 
         if (!_golfStateMachine.PlayerController.isCharging)
-        {
             _golfStateMachine.SetState(_golfStateMachine.PlayerShootState);
+
+        else if (_golfStateMachine.PlayerController.isFouledCharging)
+        {
+            Debug.Log("Fouled!!");
+            _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
         }
     }
 
