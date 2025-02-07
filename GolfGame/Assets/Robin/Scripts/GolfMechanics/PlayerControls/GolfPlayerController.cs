@@ -106,9 +106,7 @@ public class GolfPlayerController : MonoBehaviour
     #endregion
     
     private void FixedUpdate()
-    {
-        Debug.Log(RightBound());
-        
+    {   
         float cameraPositionX = Mathf.Clamp(cameraObject.transform.position.x, LeftBound(), RightBound()); 
         float cameraPositionY = Mathf.Clamp(cameraObject.transform.position.y, ButtonBound(), TopBound()); 
 
