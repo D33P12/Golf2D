@@ -45,10 +45,18 @@ public class GolfPlayerController : MonoBehaviour
 
     [Header("Player Look")]
     [SerializeField] private CinemachineVirtualCamera cameraObject;
-    //[SerializeField] private Transform lookTrans;
     [SerializeField] private float lookSpeed = 6.0f;
+
     private Vector2 camVelocity;
     [NonSerialized] public bool isLooking;
+
+    [Header("Camera Boundary Setup")]
+    //Robin's Note: Make sure the center point's position is 0, and no hypo distances between a boundary point and the center point.
+    [SerializeField] private Transform levelCenterPoint;
+    [SerializeField] private Transform camTopBound;
+    [SerializeField] private Transform camButtonBound;
+    [SerializeField] private Transform camLeftBound;
+    [SerializeField] private Transform camRightBound;
     #endregion
 
     #region Initialization
@@ -96,16 +104,15 @@ public class GolfPlayerController : MonoBehaviour
     }
     #endregion
     
-    /*private void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (_canChangeDirection)
-        {
-            if (isLooking)
-                HandlingLooking();
-            else
-                HandlingAiming();
-        }         
-    }*/
+        Debug.Log(RightBound());
+        
+        float cameraPositionX = Mathf.Clamp(cameraObject.transform.position.x, LeftBound(), RightBound()); 
+        float cameraPositionY = Mathf.Clamp(cameraObject.transform.position.y, ButtonBound(), TopBound()); 
+
+        cameraObject.transform.position = new Vector3(cameraPositionX, cameraPositionY, cameraObject.transform.position.z);
+    }
 
     #region Player Aiming
     public void HandlingAiming()
@@ -126,11 +133,9 @@ public class GolfPlayerController : MonoBehaviour
     public void HandlingLooking()
     {
         input = inputManager.PlayerLookAround();
-        Vector2 cameraMove = new Vector2(input.x, input.y);
-        CharacterController lookController = cameraObject.GetComponent<CharacterController>();
 
-        lookController.Move(cameraMove * Time.deltaTime * lookSpeed);
-        lookController.Move(camVelocity * Time.deltaTime);
+        var cameraMove = new Vector2(input.x, input.y);
+        cameraObject.transform.Translate(cameraMove * Time.deltaTime * lookSpeed, Space.World);
     }
 
     private void IsLooking()
@@ -140,6 +145,29 @@ public class GolfPlayerController : MonoBehaviour
     private void IsNotLooking()
     {
         isLooking = false;
+    }
+    #endregion
+
+    #region Boundary Calculator
+    //In Unity, left and button position should be negative value, top and right should be positive value
+    private float LeftBound()
+    {
+        return -Vector2.Distance(camLeftBound.position, levelCenterPoint.position);
+    }
+
+    private float RightBound()
+    {
+        return Vector2.Distance(camRightBound.position, levelCenterPoint.position);
+    }
+
+    private float TopBound()
+    {
+        return Vector2.Distance(camTopBound.position, levelCenterPoint.position);
+    }
+
+    private float ButtonBound()
+    {
+        return -Vector2.Distance(camButtonBound.position, levelCenterPoint.position);
     }
     #endregion
 
