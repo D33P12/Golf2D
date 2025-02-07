@@ -32,7 +32,8 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private float chargeSpeed = 50f;
     [SerializeField] private float initialForce = 0f;
     public float maxForce = 100f;
-    [SerializeField] private float foulForce = 50f;
+    [SerializeField] private float warningForce = 125f;
+    [SerializeField] private float foulForce = 150f;
 
     [NonSerialized] public bool isCharging;
     private float calForce;
@@ -179,10 +180,14 @@ public class GolfPlayerController : MonoBehaviour
 
         if (calForce > maxForce)    // if current force is higher than the max force the player can reach
         {
-            Debug.Log(calForce);
             currentForce = maxForce;    // keep it at the maximum force
-            if (calForce >= maxForce + foulForce)
+            if (calForce >= foulForce)
                 isFouledCharging = true;
+            else if (calForce >= warningForce)
+            {
+                Debug.Log("Warning, you are trying to get fouled!!");
+                isFouledCharging = false;
+            }
             else
                 isFouledCharging = false;
         }
