@@ -48,7 +48,6 @@ public class GolfPlayerController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera cameraObject;
     [SerializeField] private float lookSpeed = 6.0f;
 
-    private Vector2 camVelocity;
     [NonSerialized] public bool isLooking;
 
     [Header("Camera Boundary Setup")]
