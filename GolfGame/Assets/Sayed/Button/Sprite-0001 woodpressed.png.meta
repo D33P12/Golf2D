@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprite-0001 woodpressed_0: 6020694933309523655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
