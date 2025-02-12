@@ -20,6 +20,7 @@ public class PlayerCharging : BaseState
     {
         //Charging to look for better force to shoot
         _golfStateMachine.PlayerController.HandlingCharging();
+        _golfStateMachine.PlayerController.HandlingAiming();
 
         if (!_golfStateMachine.PlayerController.isCharging)
             _golfStateMachine.SetState(_golfStateMachine.PlayerShootState);
