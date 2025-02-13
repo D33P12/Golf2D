@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class GolfStateMachine : BaseStateMachine
 {
-
-    //Note by Will: next time doing this, separate the state machine out of the golfball and move it to a different gameobject. 
     #region Keep track of all golf states
     //Create the 3 golf player states
     private PlayerAiming _playerAimingState;
+    private PlayerLooking _playerLookingState;
     private PlayerCharging _playerChargingState;
     private PlayerShoot _playerShootState;
     private PlayerStart _playerStartState;
@@ -21,6 +21,7 @@ public class GolfStateMachine : BaseStateMachine
     #region Referencing all of golf states
     //Golf Player
     public PlayerAiming PlayerAimingState => _playerAimingState;
+    public PlayerLooking PlayerLookingState => _playerLookingState;
     public PlayerCharging PlayerChargingState => _playerChargingState;
     public PlayerShoot PlayerShootState => _playerShootState;
     public PlayerStart PlayerStartState => _playerStartState;
@@ -55,6 +56,7 @@ public class GolfStateMachine : BaseStateMachine
     {
         //Golf Player
         _playerAimingState = new PlayerAiming(this);
+        _playerLookingState = new PlayerLooking(this);
         _playerChargingState = new PlayerCharging(this);
         _playerShootState = new PlayerShoot(this);
         _playerStartState = new PlayerStart(this);
@@ -67,7 +69,7 @@ public class GolfStateMachine : BaseStateMachine
 
     private void Start()
     {
-        // Switch to the default state for the golf player, which will be the aiming state
+        // Switch to the default state for the golf player, which will be the start state
         SetState(PlayerStartState);
     }
 }

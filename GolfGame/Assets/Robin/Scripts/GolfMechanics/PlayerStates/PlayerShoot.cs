@@ -12,19 +12,19 @@ public class PlayerShoot : BaseState
 
     public override void EnterState()
     {
+        //_golfStateMachine.PlayerController.EnableBallPhysMaterial();
         _golfStateMachine.PlayerController.ShootBall();
     }
 
     public override void UpdateState()
     {
-        if (_golfStateMachine.PlayerController.isBallStopped())
-        {
+        if (_golfStateMachine.PlayerController.ballRb.IsSleeping())
             _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
-        }
     }
 
     public override void ExitState()
     {
         Debug.Log("Finish shooting");
+        //_golfStateMachine.PlayerController.DisableBallPhysMaterial();
     }
 }

@@ -20,10 +20,15 @@ public class PlayerCharging : BaseState
     {
         //Charging to look for better force to shoot
         _golfStateMachine.PlayerController.HandlingCharging();
+        _golfStateMachine.PlayerController.HandlingAiming();
 
         if (!_golfStateMachine.PlayerController.isCharging)
-        {
             _golfStateMachine.SetState(_golfStateMachine.PlayerShootState);
+
+        else if (_golfStateMachine.PlayerController.isFouledCharging)
+        {
+            Debug.Log("Fouled!!");
+            _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
         }
     }
 
@@ -31,6 +36,6 @@ public class PlayerCharging : BaseState
     {
         Debug.Log("Finish charging");
         _golfStateMachine.PlayerController.FinishCharging();
-        _golfStateMachine.PlayerController.CanChangeDirection(false);
+        //_golfStateMachine.PlayerController.CanChangeDirection(false);
     }
 }
