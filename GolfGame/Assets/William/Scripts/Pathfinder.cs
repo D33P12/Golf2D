@@ -18,14 +18,20 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] private float randomTempY;
     [SerializeField] private Vector3 randomVector;
 
+    //curve depths
+    [SerializeField] private float minCurveDepth;
+    [SerializeField] private float maxCurveDepth;
+
     [SerializeField] private Vector3 pathfindPointAA;
     [SerializeField] private Vector3 pathfindPointAB;
     [SerializeField] private Vector3 pathfindPointBA;
     [SerializeField] private Vector3 PathfindPointBB;
 
     [SerializeField] private Mole output;
-
+    [SerializeField] private bool shouldDigUp;
     [SerializeField] private bool diggingUp;
+
+    LayerMask layerMask;
 
     private bool finishedRunning;
     private bool tooClose;
@@ -35,21 +41,29 @@ public class Pathfinder : MonoBehaviour
     {
         pathfinderRB = this.gameObject.GetComponent<Rigidbody2D>();
         tooClose = false;
+        layerMask = LayerMask.GetMask("Player");
     }
 
     public void Pathfind()
     {
         //rules: points picked must not be below golfball directly, and be in front of golf hole
         //lets do the digging down first, so I need a point that is a tile with a null above. avoiding the golfball
-        diggingUp = Random.value < 0.5f;
-
+        if (shouldDigUp)
+        {
+            diggingUp = Random.value < 0.5f;
+        }
+        else
+        {
+            diggingUp = false;
+        }
+        
         finishedRunning = false;
 
         randomTempX = Random.Range(minDigX, maxDigX);
 
         if (diggingUp)
         {
-            pathfinderRB.gravityScale = -1;
+            pathfinderRB.gravityScale = -10;
             tooClose = (Mathf.Abs(golfHoleRef.transform.position.x - maxDigXB) < 5f);
             if (tooClose)
             {
@@ -58,18 +72,9 @@ public class Pathfinder : MonoBehaviour
         }
         else
         {
-            pathfinderRB.gravityScale = 1;
+            pathfinderRB.gravityScale = 10;
         }
 
-        /*while (Mathf.Abs(randomTempX - golfBallRef.transform.position.x) < 2 && (randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
-        {
-            randomTempX = Random.Range(minDigX, maxDigX);
-        }*/
-        /*while ((randomTempX < golfHoleRef.transform.position.x - 2 || randomTempX > golfHoleRef.transform.position.x + 2))
-        {
-            randomTempX = Random.Range(minDigX, maxDigX);
-        }*/
-        randomVector = new Vector3(randomTempX, maxDigHeight, 0);
         randomTempY = maxDigHeight;
 
 
@@ -92,7 +97,8 @@ public class Pathfinder : MonoBehaviour
 
     IEnumerator RecordLocation(System.Action<Vector3> callback)
     {
-        yield return new WaitForSeconds(3);
+
+        yield return new WaitForSeconds(1);
         callback(pathfinderTransform.position);
 
     }
@@ -141,20 +147,21 @@ public class Pathfinder : MonoBehaviour
             pathfindPointBA = new Vector3(tempVector3.x, tempVector3.y, 0);
         }
 
-        randomTempX = Random.Range(4, maxDigHeight);
+        randomTempX = Random.Range(minCurveDepth, maxCurveDepth);
 
         if (diggingUp)
         {
             pathfindPointAB = new Vector3(pathfindPointAA.x + 2f, pathfindPointAA.y + randomTempX, 0);
-            PathfindPointBB = new Vector3(pathfindPointBA.x + 2f, pathfindPointBA.y + randomTempX, 0);
+            PathfindPointBB = new Vector3(pathfindPointBA.x - 2f, pathfindPointBA.y + randomTempX, 0);
         }
         else
         {
             pathfindPointAB = new Vector3(pathfindPointAA.x + 2f, pathfindPointAA.y - randomTempX, 0);
-            PathfindPointBB = new Vector3(pathfindPointBA.x + 2f, pathfindPointBA.y - randomTempX, 0);
+            PathfindPointBB = new Vector3(pathfindPointBA.x - 2f, pathfindPointBA.y - randomTempX, 0);
         }
 
         output.SetPoints(pathfindPointAA, pathfindPointAB, pathfindPointBA, PathfindPointBB);
+        pathfinderRB.gravityScale = 0;
         finishedRunning = true;
 
     }

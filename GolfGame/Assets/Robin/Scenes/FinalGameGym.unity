@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 236985489}
   - component: {fileID: 236985488}
   - component: {fileID: 236985492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21367,8 +21367,7 @@ MonoBehaviour:
   pathfindPointBA: {x: 0, y: 0, z: 0}
   PathfindPointBB: {x: 0, y: 0, z: 0}
   output: {fileID: 811039292}
-  minRange: 4
-  maxRange: 15
+  diggingUp: 0
 --- !u!212 &1290222928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56597,6 +56596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mole
       objectReference: {fileID: 0}
+    - target: {fileID: 2425298634640305963, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3035547903991816954, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
       propertyPath: inPlatform.m_Bits
       value: 8
@@ -56657,6 +56660,10 @@ PrefabInstance:
       propertyPath: digSpeed
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6243791950122016735, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
+      propertyPath: splitCheck
+      value: 
+      objectReference: {fileID: 1874450373}
     - target: {fileID: 6243791950122016735, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
       propertyPath: golfBallRef
       value: 
