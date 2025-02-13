@@ -21354,7 +21354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golfBallRef: {fileID: 539786231}
   golfHoleRef: {fileID: 1589660420}
-  maxDigHeight: -1
+  maxDigHeight: 0
   minDigX: -15
   maxDigX: 58
   maxDigXB: 38
@@ -21362,11 +21362,14 @@ MonoBehaviour:
   randomTempX: 0
   randomTempY: 0
   randomVector: {x: 0, y: 0, z: 0}
+  minCurveDepth: 4
+  maxCurveDepth: 8
   pathfindPointAA: {x: 0, y: 0, z: 0}
   pathfindPointAB: {x: 0, y: 0, z: 0}
   pathfindPointBA: {x: 0, y: 0, z: 0}
   PathfindPointBB: {x: 0, y: 0, z: 0}
   output: {fileID: 811039292}
+  shouldDigUp: 0
   diggingUp: 0
 --- !u!212 &1290222928
 SpriteRenderer:
@@ -21509,7 +21512,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!4 &1370951912 stripped
 Transform:
@@ -22267,6 +22270,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 270884194}
     m_Modifications:
     - target: {fileID: 1418071169145134517, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+      propertyPath: startingInMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418071169145134517, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: emptyGridPrefab
       value: 
       objectReference: {fileID: 7409545324050294684, guid: 55df541b08483664eb3fa9dbbe676b26, type: 3}
@@ -22293,6 +22300,10 @@ PrefabInstance:
     - target: {fileID: 4288642240067071415, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945795463835869201, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6451251268004397972, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_Size.x
@@ -56519,6 +56530,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 471760019823663140, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1985704393758725318, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56563,7 +56578,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraBoundrySetup
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 471760019823663140, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

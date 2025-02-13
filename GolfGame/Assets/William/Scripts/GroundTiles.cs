@@ -146,6 +146,7 @@ public class GroundTiles : MonoBehaviour
     public void TurnDynamicThenStatic()
     {
         rb_self.bodyType = RigidbodyType2D.Dynamic;
+        rb_self.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         StartCoroutine(LockInPiece(rb_self));
     }
 
