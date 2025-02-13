@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f22c44ea-a26e-450a-ace5-238fcdc28058" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/EnviornmetSprite/TreeGroup.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/EnviornmetSprite/TreeGroup.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/ParallaxBg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/ParallaxBg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Gympara.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Gympara.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Prefabs/Mole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Prefabs/Mole.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +109,7 @@
       <workItem from="1739362753082" duration="1030000" />
       <workItem from="1739374970607" duration="113000" />
       <workItem from="1739408212121" duration="2682000" />
+      <workItem from="1739474543987" duration="1162000" />
     </task>
     <servers />
   </component>
