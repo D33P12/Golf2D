@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f22c44ea-a26e-450a-ace5-238fcdc28058" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultVolumeProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/EndResultScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/EndResultScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/Level 2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/Level 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +116,7 @@
       <workItem from="1739500842856" duration="1524000" />
       <workItem from="1739503104712" duration="1973000" />
       <workItem from="1739524874761" duration="109000" />
+      <workItem from="1739527734204" duration="4542000" />
     </task>
     <servers />
   </component>
