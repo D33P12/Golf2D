@@ -41,6 +41,13 @@ public class EndLevelScript : MonoBehaviour
         SceneManager.LoadScene(3,LoadSceneMode.Single);
         LockCursor();
     }
+
+    public void Level4()
+    {
+        DestroyLevelCanvas();
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
+        LockCursor();
+    }
     private void DestroyLevelCanvas()
     {
         if (levelCanvas != null)
