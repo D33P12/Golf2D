@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f22c44ea-a26e-450a-ace5-238fcdc28058" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/SampleScripts/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/GolfStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/GolfStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerStates/PlayerCharging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerStates/PlayerCharging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerStates/PlayerShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerStates/PlayerShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/MainMenu 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/MainMenu 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/MainMenu 1.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/MainMenu 1.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Sayed/PauseMenuScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/PauseMenuScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/EndResultScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/EndResultScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/Level 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/Level 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/Level 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/Level 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/William/Scripts/States/MoleDig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/William/Scripts/States/MoleDig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +127,7 @@
       <workItem from="1739503104712" duration="1973000" />
       <workItem from="1739524874761" duration="109000" />
       <workItem from="1739527734204" duration="4542000" />
-      <workItem from="1739532426426" duration="138000" />
+      <workItem from="1739532426426" duration="7095000" />
     </task>
     <servers />
   </component>

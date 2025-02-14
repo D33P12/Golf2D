@@ -14,6 +14,7 @@ public class PlayerShoot : BaseState
     {
         //_golfStateMachine.PlayerController.EnableBallPhysMaterial();
         _golfStateMachine.PlayerController.ShootBall();
+        SoundManager.Instance.PlayAudio(SoundManager.AudioType.PlayerSwing,2f);
     }
 
     public override void UpdateState()

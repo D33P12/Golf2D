@@ -17,8 +17,10 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            SoundManager.Instance.PlayAudio(SoundManager.AudioType.ButtonClick);
             if (isPaused)
             {
+                
                 ResumeGame();
             }
             else
@@ -47,6 +49,8 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void RestartGame()
     {
+        
+        SoundManager.Instance.PlayAudio(SoundManager.AudioType.ButtonClick);
         Time.timeScale = 1f; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
@@ -55,6 +59,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void GoToMainMenu()
     {
+        SoundManager.Instance.PlayAudio(SoundManager.AudioType.ButtonClick);
         Time.timeScale = 1f; 
         SceneManager.LoadScene(0);
 
@@ -63,6 +68,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void QuitGame()
     {
+        SoundManager.Instance.PlayAudio(SoundManager.AudioType.ButtonClick);
         Application.Quit();
     }
 }

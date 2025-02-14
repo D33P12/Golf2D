@@ -74,6 +74,8 @@ public class GolfStateMachine : BaseStateMachine
     private void Start()
     {
         // Switch to the default state for the golf player, which will be the start state
+       
         SetState(PlayerStartState);
+     
     }
 }

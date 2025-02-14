@@ -3,8 +3,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public enum AudioType
-    {
-        //list callout music name here
+    { 
+        PlayerSwing,
+        PlayerCharge,
+        PlayerFoul,
+        MoleDig,
+        ButtonClick
     }
     
   //  SoundManager.Instance.PlayAudio(SoundManager.AudioType.(Name from the lis));
