@@ -42452,6 +42452,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2464138252851497961, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
   m_PrefabInstance: {fileID: 722193949}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &722193951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+  m_PrefabInstance: {fileID: 722193949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &734494500
 GameObject:
   m_ObjectHideFlags: 0
@@ -82607,7 +82618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377cfd1c01026c146be9ecd23a043b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceBar: {fileID: 1014898413712073708}
+  forceBarImage: {fileID: 722193951}
+  golfPlayerController: {fileID: 6723482360883153624}
 --- !u!1 &7719856754003688457
 GameObject:
   m_ObjectHideFlags: 0
