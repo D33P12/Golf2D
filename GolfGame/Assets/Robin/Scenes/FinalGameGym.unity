@@ -20433,6 +20433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ce3bba41212dd4ba6a2f9da63727be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moleDigsInThisLevel: 1
   _playerController: {fileID: 539786235}
   _moleObject: {fileID: 811039292}
   _pathfinderObject: {fileID: 1290222927}
