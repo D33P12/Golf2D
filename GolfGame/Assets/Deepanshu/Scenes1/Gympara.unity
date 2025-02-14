@@ -310,7 +310,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1880733993
-  m_SortingLayer: 13
+  m_SortingLayer: -3
   m_SortingOrder: 11
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5005417, y: 0.49999994, z: 0}
@@ -1623,7 +1623,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1795587029
-  m_SortingLayer: 15
+  m_SortingLayer: -1
   m_SortingOrder: 13
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5005417, y: 0.5, z: 0}
@@ -2734,6 +2734,7 @@ MonoBehaviour:
   _pathfinderObject: {fileID: 1290222927}
   _fieldObject: {fileID: 270884195}
   _uiMoleThinkingText: {fileID: 1845413429}
+  _playerSpriteMover: {fileID: 0}
 --- !u!4 &839951260
 Transform:
   m_ObjectHideFlags: 0

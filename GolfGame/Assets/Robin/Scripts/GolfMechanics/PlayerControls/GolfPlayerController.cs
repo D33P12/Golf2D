@@ -238,7 +238,7 @@ public class GolfPlayerController : MonoBehaviour
         Debug.Log("Shoot!");
         _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
         ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
-        
+        ScoreManager.Instance.ScorePlusOne();
         chargeSprite.gameObject.SetActive(false);
         shootSprite.gameObject.SetActive(true);
         
