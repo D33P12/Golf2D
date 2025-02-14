@@ -4,6 +4,8 @@ using System;
 
 public class GolfStateMachine : BaseStateMachine
 {
+    [SerializeField] public bool moleDigsInThisLevel;
+
     #region Keep track of all golf states
     //Create the 3 golf player states
     private PlayerAiming _playerAimingState;

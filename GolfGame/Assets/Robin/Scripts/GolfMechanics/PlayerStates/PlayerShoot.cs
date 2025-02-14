@@ -19,7 +19,17 @@ public class PlayerShoot : BaseState
     public override void UpdateState()
     {
         if (_golfStateMachine.PlayerController.ballRb.IsSleeping())
-            _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
+        {
+            if (_golfStateMachine.moleDigsInThisLevel)
+            {
+                _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
+            }
+            else
+            {
+                _golfStateMachine.SetState(_golfStateMachine.PlayerAimingState);
+            }
+            
+        } 
     }
 
     public override void ExitState()
