@@ -43,6 +43,7 @@ public class GolfStateMachine : BaseStateMachine
     [SerializeField] private Pathfinder _pathfinderObject;
     [SerializeField] private Field _fieldObject;
     [SerializeField] private GameObject _uiMoleThinkingText;
+    [SerializeField] private PlayerSpriteMover _playerSpriteMover;
 
     // Also we need to create instance for our player controller
     public GolfPlayerController PlayerController => _playerController;
@@ -52,6 +53,7 @@ public class GolfStateMachine : BaseStateMachine
     public Pathfinder PathfinderObject => _pathfinderObject;
     public Field FieldObject => _fieldObject;
     public GameObject UIMoleThinkingText => _uiMoleThinkingText;
+    public PlayerSpriteMover PlayerSpriteMover => _playerSpriteMover;
     #endregion
 
     private void Awake()
