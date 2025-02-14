@@ -26,6 +26,7 @@ public class GroundTiles : MonoBehaviour
     private Transform fieldContainerTransform;
     private Rigidbody2D rb_self;
     [SerializeField] GameObject emptyGridPrefab;
+    [SerializeField] private bool startingInMap;
     
 
     private void Start()
@@ -34,7 +35,10 @@ public class GroundTiles : MonoBehaviour
         Field.Instance.AddTiles(this.gameObject);
         tilemap = this.gameObject.GetComponent<Tilemap>();
         rb_self = this.gameObject.GetComponent<Rigidbody2D>();
-        TurnDynamicThenStatic();
+        if (!startingInMap)
+        {
+            TurnDynamicThenStatic();
+        }
     }
 
     public void DeleteTile(Vector3 Pos)
@@ -142,6 +146,7 @@ public class GroundTiles : MonoBehaviour
     public void TurnDynamicThenStatic()
     {
         rb_self.bodyType = RigidbodyType2D.Dynamic;
+        rb_self.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         StartCoroutine(LockInPiece(rb_self));
     }
 
