@@ -42438,6 +42438,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6383474005045464572, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -43421,6 +43441,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1260398588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260398590}
+  - component: {fileID: 1260398589}
+  m_Layer: 0
+  m_Name: '[ScoreManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1260398589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260398588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c942eddf67cf1b4b9916fe5ba185ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overallScore: 0
+  golfScore: 0
+--- !u!4 &1260398590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260398588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.01869, y: -20.488554, z: 3.9386802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290222926
 GameObject:
   m_ObjectHideFlags: 0
@@ -82747,3 +82813,4 @@ SceneRoots:
   - {fileID: 864683901}
   - {fileID: 2028196862}
   - {fileID: 1319342288062721441}
+  - {fileID: 1260398590}
