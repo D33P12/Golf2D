@@ -14,6 +14,7 @@ public class MoleDig : BaseState
     {
         _golfStateMachine.MoleObject.gameObject.SetActive(true);
         _golfStateMachine.MoleObject.StartDigging(_golfStateMachine.PathfinderObject.isDiggingUp());
+        SoundManager.Instance.PlayAudioContinuous(SoundManager.AudioType.MoleDig,0.08f);
     }
 
     public override void UpdateState()
@@ -27,5 +28,6 @@ public class MoleDig : BaseState
     public override void ExitState()
     {
         _golfStateMachine.MoleObject.gameObject.SetActive(false);
+        SoundManager.Instance.StopPlaying();
     }
 }

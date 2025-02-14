@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/William/Scenes/EndResultScreen.unity
     guid: 78a93c3b137ad8a49b2fb75ae0532337
+  - enabled: 1
+    path: Assets/Sayed/MainMenu 1.unity
+    guid: 451ce258ad5b88a40b21acc436e7b9fd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 53e0b24d14ea0744cb2e84c1eea75423, type: 3}
   m_UseUCBPForAssetBundles: 0

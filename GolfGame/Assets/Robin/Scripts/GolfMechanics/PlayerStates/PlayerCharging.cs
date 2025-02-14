@@ -13,6 +13,8 @@ public class PlayerCharging : BaseState
     public override void EnterState()
     {
         //Enter the charging state, start charging before shoot
+        SoundManager.Instance.PlayAudio(SoundManager.AudioType.PlayerCharge, 0.09f);
+        
         _golfStateMachine.PlayerSpriteMover.MovetoPlayer();
         Debug.Log("Start charging");
     }
@@ -28,6 +30,8 @@ public class PlayerCharging : BaseState
 
         else if (_golfStateMachine.PlayerController.isFouledCharging)
         {
+            SoundManager.Instance.PlayAudio(SoundManager.AudioType.PlayerFoul);
+            
             Debug.Log("Fouled!!");
             _golfStateMachine.SetState(_golfStateMachine.MoleSetPositionState);
         }
@@ -35,6 +39,7 @@ public class PlayerCharging : BaseState
 
     public override void ExitState()
     {
+        SoundManager.Instance.StopPlaying();
         Debug.Log("Finish charging");
         _golfStateMachine.PlayerController.FinishCharging();
         //_golfStateMachine.PlayerController.CanChangeDirection(false);
