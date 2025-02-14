@@ -60440,6 +60440,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 499077957517200310, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 1985704393758725318, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -60480,9 +60484,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7406397992517158915, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 8569744833405991237, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
       propertyPath: m_Name
       value: CameraBoundrySetup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629160590445894194, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059123532976653516, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471760019823663140, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
