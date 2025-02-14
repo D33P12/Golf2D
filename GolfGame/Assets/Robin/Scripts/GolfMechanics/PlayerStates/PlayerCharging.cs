@@ -13,6 +13,7 @@ public class PlayerCharging : BaseState
     public override void EnterState()
     {
         //Enter the charging state, start charging before shoot
+        _golfStateMachine.PlayerSpriteMover.MovetoPlayer();
         Debug.Log("Start charging");
     }
 

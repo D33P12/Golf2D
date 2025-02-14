@@ -1,9 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class GolfHole : MonoBehaviour
 {
+    [SerializeField] private GameObject scoreScreen;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("You Win, next stage");
+        scoreScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
+
 }
