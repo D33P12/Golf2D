@@ -2158,6 +2158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f77a59c2f560e64cb5dd3338349732d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
 --- !u!4 &324063941
 Transform:
   m_ObjectHideFlags: 0
@@ -3542,6 +3543,8 @@ MonoBehaviour:
   pathfindPointBA: {x: 0, y: 0, z: 0}
   PathfindPointBB: {x: 0, y: 0, z: 0}
   output: {fileID: 811039292}
+  minRange: 4
+  maxRange: 15
 --- !u!212 &1290222928
 SpriteRenderer:
   m_ObjectHideFlags: 0

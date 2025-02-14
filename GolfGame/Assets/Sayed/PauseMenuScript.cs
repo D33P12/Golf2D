@@ -4,24 +4,22 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenu;
-    public  static bool isPaused;
+    public static bool isPaused;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PauseMenu.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-          if (isPaused)
+            if (isPaused)
             {
                 ResumeGame();
             }
-          else
+            else
             {
                 PauseGame();
             }
@@ -30,21 +28,21 @@ public class PauseMenuScript : MonoBehaviour
 
     public void PauseGame()
     {
-     PauseMenu.SetActive(true);
+        PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
-        PauseMenu.SetActive( false );
+        PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
 
     public void GoToMainMenu()
     {
-        Time.timescale = 1f;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
