@@ -39,8 +39,65 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: SkyTop
+    uniqueID: 645143157
+    locked: 0
+  - name: BottomSky
+    uniqueID: 165109283
+    locked: 0
+  - name: Clouds
+    uniqueID: 2117217719
+    locked: 0
+  - name: Mountains1
+    uniqueID: 2310248671
+    locked: 0
+  - name: DividingTrees
+    uniqueID: 1156412305
+    locked: 0
+  - name: Mountains2
+    uniqueID: 1949695087
+    locked: 0
+  - name: DividingTress1
+    uniqueID: 2366048087
+    locked: 0
+  - name: MidGround
+    uniqueID: 3740360227
+    locked: 0
+  - name: LowerGround
+    uniqueID: 2321386239
+    locked: 0
+  - name: TreesLayer1
+    uniqueID: 2989762577
+    locked: 0
+  - name: TreesLayer2
+    uniqueID: 1921320665
+    locked: 0
+  - name: TreesLayer3
+    uniqueID: 2572215723
+    locked: 0
+  - name: TileMapSolidGround
+    uniqueID: 1880733993
+    locked: 0
+  - name: TileMapMain
+    uniqueID: 1332245327
+    locked: 0
+  - name: TileMapHole
+    uniqueID: 2499380267
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MoleLayer
+    uniqueID: 1711437423
+    locked: 0
+  - name: Player
+    uniqueID: 4193051099
+    locked: 0
+  - name: GolfBall
+    uniqueID: 1528230433
+    locked: 0
+  - name: AimBar
+    uniqueID: 1642016257
     locked: 0
   m_RenderingLayers:
   - Default

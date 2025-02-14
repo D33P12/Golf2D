@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5ec64f7357b37c3448901e3dc90ad939
+guid: c09a2df46ed1b6345b9ebd7d84f2ed6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6020694933309523655
-    second: Sprite-0001 woodpressed_0
+      213: 2159623302513543071
+    second: PlayerCharge_0
+  - first:
+      213: 6443410763621570950
+    second: PlayerCharge_1
+  - first:
+      213: -7962813662495951835
+    second: PlayerCharge_2
+  - first:
+      213: 1870093292893211048
+    second: PlayerCharge_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonPressed
+      name: PlayerCharge_0
       rect:
         serializedVersion: 2
-        x: 802
-        y: 607
-        width: 229
-        height: 106
+        x: 0
+        y: 0
+        width: 120
+        height: 120
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 2, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c688e0942ecd8350800000000000000
-      internalID: 6020694933309523655
+      spriteID: f97c9f293f588fd10800000000000000
+      internalID: 2159623302513543071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCharge_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689979b63f79b6950800000000000000
+      internalID: 6443410763621570950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCharge_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5243d4aa9276e7190800000000000000
+      internalID: -7962813662495951835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerCharge_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a98db311f7e3f910800000000000000
+      internalID: 1870093292893211048
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3fa08e9999fd1594db755d90524801e9
+    spriteID: dc0589f405a3b3241b3bf26e82f6d6ed
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ButtonPressed: 6020694933309523655
+      PlayerCharge_0: 2159623302513543071
+      PlayerCharge_1: 6443410763621570950
+      PlayerCharge_2: -7962813662495951835
+      PlayerCharge_3: 1870093292893211048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ec64f7357b37c3448901e3dc90ad939
+guid: 2a9511fb47b8f504694c6f32e0a45cb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6020694933309523655
-    second: Sprite-0001 woodpressed_0
+      213: -4903340808213095316
+    second: Sprite-0001 HIGH SCORE_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonPressed
+      name: Sprite-0001 HIGH SCORE_0
       rect:
         serializedVersion: 2
-        x: 802
-        y: 607
-        width: 229
-        height: 106
+        x: 383
+        y: 54
+        width: 1106
+        height: 903
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 2, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c688e0942ecd8350800000000000000
-      internalID: 6020694933309523655
+      spriteID: c6c18c19385d3fbb0800000000000000
+      internalID: -4903340808213095316
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3fa08e9999fd1594db755d90524801e9
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ButtonPressed: 6020694933309523655
+      Sprite-0001 HIGH SCORE_0: -4903340808213095316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
