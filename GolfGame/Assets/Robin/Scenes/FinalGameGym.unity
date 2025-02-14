@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 236985489}
   - component: {fileID: 236985488}
   - component: {fileID: 236985492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20433,6 +20433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ce3bba41212dd4ba6a2f9da63727be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moleDigsInThisLevel: 1
   _playerController: {fileID: 539786235}
   _moleObject: {fileID: 811039292}
   _pathfinderObject: {fileID: 1290222927}
@@ -21354,7 +21355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golfBallRef: {fileID: 539786231}
   golfHoleRef: {fileID: 1589660420}
-  maxDigHeight: -1
+  maxDigHeight: 0
   minDigX: -15
   maxDigX: 58
   maxDigXB: 38
@@ -21362,13 +21363,15 @@ MonoBehaviour:
   randomTempX: 0
   randomTempY: 0
   randomVector: {x: 0, y: 0, z: 0}
+  minCurveDepth: 4
+  maxCurveDepth: 8
   pathfindPointAA: {x: 0, y: 0, z: 0}
   pathfindPointAB: {x: 0, y: 0, z: 0}
   pathfindPointBA: {x: 0, y: 0, z: 0}
   PathfindPointBB: {x: 0, y: 0, z: 0}
   output: {fileID: 811039292}
-  minRange: 4
-  maxRange: 15
+  shouldDigUp: 0
+  diggingUp: 0
 --- !u!212 &1290222928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21510,7 +21513,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!4 &1370951912 stripped
 Transform:
@@ -22268,6 +22271,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 270884194}
     m_Modifications:
     - target: {fileID: 1418071169145134517, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+      propertyPath: startingInMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418071169145134517, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: emptyGridPrefab
       value: 
       objectReference: {fileID: 7409545324050294684, guid: 55df541b08483664eb3fa9dbbe676b26, type: 3}
@@ -22294,6 +22301,10 @@ PrefabInstance:
     - target: {fileID: 4288642240067071415, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945795463835869201, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6451251268004397972, guid: f3c0f820d7f45e24c8ff9ab956b7bf9a, type: 3}
       propertyPath: m_Size.x
@@ -56520,6 +56531,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 471760019823663140, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1985704393758725318, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56564,7 +56579,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraBoundrySetup
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 471760019823663140, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -56596,6 +56612,10 @@ PrefabInstance:
     - target: {fileID: 2425298634640305963, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
       propertyPath: m_Name
       value: Mole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425298634640305963, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3035547903991816954, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
       propertyPath: inPlatform.m_Bits
@@ -56657,6 +56677,10 @@ PrefabInstance:
       propertyPath: digSpeed
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6243791950122016735, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
+      propertyPath: splitCheck
+      value: 
+      objectReference: {fileID: 1874450373}
     - target: {fileID: 6243791950122016735, guid: 2142c16d412ff0b4ebbbdc4cf9ea2837, type: 3}
       propertyPath: golfBallRef
       value: 

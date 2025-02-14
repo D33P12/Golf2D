@@ -13,7 +13,7 @@ public class MoleDig : BaseState
     public override void EnterState()
     {
         _golfStateMachine.MoleObject.gameObject.SetActive(true);
-        _golfStateMachine.MoleObject.StartDigging();
+        _golfStateMachine.MoleObject.StartDigging(_golfStateMachine.PathfinderObject.isDiggingUp());
     }
 
     public override void UpdateState()
