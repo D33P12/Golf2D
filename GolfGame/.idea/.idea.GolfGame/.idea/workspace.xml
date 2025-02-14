@@ -6,14 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="f22c44ea-a26e-450a-ace5-238fcdc28058" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GolfGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/CharacterSprite/PlayerSprite/PlayerUnityFile_4.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Gympara.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Deepanshu/Scenes1/Gympara.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/BORDER/Sprite-0001 BORDER 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/BORDER/Sprite-0001 BORDER 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/HUD/Sprite-0001 HIGH SCORE.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/HUD/Sprite-0001 HIGH SCORE.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/HUD/Sprite-0003 HUd scroll.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/HUD/Sprite-0003 HUd scroll.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Prefabs/GolfBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Prefabs/GolfBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Scenes/FinalGameGym.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Scenes/FinalGameGym.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerControls/GolfPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Robin/Scripts/GolfMechanics/PlayerControls/GolfPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/Button/Sprite-0001 wood.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/Button/Sprite-0001 wood.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sayed/Button/Sprite-0001 woodpressed.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/Button/Sprite-0001 woodpressed.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Sayed/PauseMenuScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/PauseMenuScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/power bar/IMAGE frames.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/power bar/IMAGE frames.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/power bar/Sprite-0001 power bar.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/power bar/Sprite-0001 power bar.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sayed/power bar/Sprite-0004 power bar 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sayed/power bar/Sprite-0004 power bar 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +128,7 @@
       <workItem from="1739408212121" duration="2682000" />
       <workItem from="1739474543987" duration="1162000" />
       <workItem from="1739481294080" duration="2291000" />
+      <workItem from="1739500842856" duration="1524000" />
     </task>
     <servers />
   </component>

@@ -7,6 +7,10 @@ using Cinemachine;
 
 public class GolfPlayerController : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer chargeSprite; 
+    [SerializeField] private SpriteRenderer shootSprite;
+    [SerializeField] private float _spriteChangeDelay = 0.2f;
+    [SerializeField] private Animator chargeAnimator; 
     #region PlayerControlVariables
     //Common variables
     [NonSerialized] public InputManager inputManager;  //We use input manager to control the golf ball
@@ -66,6 +70,12 @@ public class GolfPlayerController : MonoBehaviour
         ballRb = gameObject.GetComponent<Rigidbody2D>();
         //Hide the force indicator when start
         coreTrans.gameObject.SetActive(false);
+        //Sprite animation
+        ballRb = GetComponent<Rigidbody2D>();
+        coreTrans.gameObject.SetActive(false);
+        
+        chargeSprite.gameObject.SetActive(false);
+        shootSprite.gameObject.SetActive(false);
     }
 
     private void Awake()
@@ -203,10 +213,20 @@ public class GolfPlayerController : MonoBehaviour
     private void IsCharging()
     {
         isCharging = true;
+        //animation
+        chargeSprite.gameObject.SetActive(true);
+        if (chargeAnimator != null)
+        {
+            chargeAnimator.Play("ChargeAnimation", 0, 0f); // Reset animation
+        }
+
+        shootSprite.gameObject.SetActive(false);
     }
     private void IsNotCharging()
     {
         isCharging = false;
+        //animation
+        chargeSprite.gameObject.SetActive(false);
     }
     #endregion
 
@@ -218,6 +238,18 @@ public class GolfPlayerController : MonoBehaviour
         Debug.Log("Shoot!");
         _shootDirection = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * _shootDirection;
         ballRb.AddForce(_shootDirection * currentForce / friction, ForceMode2D.Impulse);
+        
+        chargeSprite.gameObject.SetActive(false);
+        shootSprite.gameObject.SetActive(true);
+        
+        // Animation Switch Delay Control
+        StartCoroutine(HideShootEffect());
+    }
+    
+    private IEnumerator HideShootEffect()
+    {
+        yield return new WaitForSeconds(_spriteChangeDelay); 
+        shootSprite.gameObject.SetActive(false);
     }
     #endregion
 

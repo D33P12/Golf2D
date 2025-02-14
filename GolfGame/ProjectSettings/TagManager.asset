@@ -39,9 +39,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: SkyTop
     uniqueID: 645143157
     locked: 0
@@ -86,6 +83,9 @@ TagManager:
     locked: 0
   - name: TileMapHole
     uniqueID: 2499380267
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: MoleLayer
     uniqueID: 1711437423

@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 3f5179ccdeda93440905ba994eb6e234
+guid: c09a2df46ed1b6345b9ebd7d84f2ed6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2839176875973524073
-    second: PlayerUnityFile_0
+      213: 2159623302513543071
+    second: PlayerCharge_0
   - first:
-      213: 5039392017261627751
-    second: PlayerUnityFile_1
+      213: 6443410763621570950
+    second: PlayerCharge_1
   - first:
-      213: -2027649865699131358
-    second: PlayerUnityFile_2
+      213: -7962813662495951835
+    second: PlayerCharge_2
   - first:
-      213: -2173464414753370416
-    second: PlayerUnityFile_3
-  - first:
-      213: -6043118150764210448
-    second: PlayerUnityFile_4
+      213: 1870093292893211048
+    second: PlayerCharge_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -125,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerUnityFile_0
+      name: PlayerCharge_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,16 +135,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 073505478214c2e439e5f1761ebed1a1
-      internalID: -68827314
+      spriteID: f97c9f293f588fd10800000000000000
+      internalID: 2159623302513543071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerUnityFile_1
+      name: PlayerCharge_1
       rect:
         serializedVersion: 2
         x: 120
@@ -160,16 +157,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ce53aeb91473a6149ad5b91543ae7c92
-      internalID: -601218620
+      spriteID: 689979b63f79b6950800000000000000
+      internalID: 6443410763621570950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerUnityFile_2
+      name: PlayerCharge_2
       rect:
         serializedVersion: 2
         x: 240
@@ -182,16 +179,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 487f2d563e1efb448a682232eba7abd3
-      internalID: -1559807143
+      spriteID: 5243d4aa9276e7190800000000000000
+      internalID: -7962813662495951835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerUnityFile_3
+      name: PlayerCharge_3
       rect:
         serializedVersion: 2
         x: 360
@@ -204,32 +201,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d66312b3835554740959580d85c404d7
-      internalID: -1877498543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerUnityFile_4
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 120
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26d875287fad50346924d2a012abf9ba
-      internalID: -1450654190
+      spriteID: 8a98db311f7e3f910800000000000000
+      internalID: 1870093292893211048
       vertices: []
       indices: 
       edges: []
@@ -238,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0933608cb0d781d4c93b779142daeb43
+    spriteID: dc0589f405a3b3241b3bf26e82f6d6ed
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerUnityFile_0: -68827314
-      PlayerUnityFile_1: -601218620
-      PlayerUnityFile_2: -1559807143
-      PlayerUnityFile_3: -1877498543
-      PlayerUnityFile_4: -1450654190
+      PlayerCharge_0: 2159623302513543071
+      PlayerCharge_1: 6443410763621570950
+      PlayerCharge_2: -7962813662495951835
+      PlayerCharge_3: 1870093292893211048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
