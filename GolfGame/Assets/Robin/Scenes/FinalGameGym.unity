@@ -21659,6 +21659,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7170291274064269591, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: forceBar
+      value: 
+      objectReference: {fileID: 1513518037}
+    - target: {fileID: 7170291274064269591, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170291274064269591, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: forceBarImage
+      value: 
+      objectReference: {fileID: 932498951}
+    - target: {fileID: 7170291274064269591, guid: 741ada8422975a54c93cc5393bdfca3f, type: 3}
+      propertyPath: golfPlayerController
+      value: 
+      objectReference: {fileID: 539786235}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22461,6 +22477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 902342918044870658, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_Name
+      value: PowerLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 1033679750965841298, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -22541,9 +22561,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081585923331684378, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6383474005045464572, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090003030257954187, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090003030257954187, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335085630111918110, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+      propertyPath: m_Name
+      value: PowerBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23020,6 +23060,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932365272}
   m_CullTransparentMesh: 1
+--- !u!114 &932498951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7090003030257954187, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+  m_PrefabInstance: {fileID: 722193949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &937601206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7406397992517158915, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
@@ -24354,6 +24405,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 499077957517200310, guid: 72e49131e0e74c449a732b9da17f8d83, type: 3}
   m_PrefabInstance: {fileID: 3091266784433809415}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1513518037 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4498680347294359009, guid: 1cff9a10861fc33478b5a43e659cee24, type: 3}
+  m_PrefabInstance: {fileID: 722193949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1533788366
 GameObject:
   m_ObjectHideFlags: 0
@@ -25511,7 +25567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1999522452
 MonoBehaviour:
   m_ObjectHideFlags: 0
